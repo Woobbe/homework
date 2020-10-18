@@ -13,15 +13,15 @@ function getPayVisitor() {
 
     switch (payVisitor) {
         case '25':
-            result = checkPass();
+            result = addCurrency25();
             showMessageForUser(result);
             break;
         case '50':
-            result = checkCurrencyCashBy50();
+            result = checkPassBy50();
             showMessageForUser(result);
             break;
         case '100':
-            result = checkCurrencyCashBy100();
+            result = checkPassBy100();
             showMessageForUser(result);
             break;
         default:
@@ -40,7 +40,7 @@ function showMessageForUser(result) {
     }
 }
 
-function checkPass() {
+function addCurrency25() {
 
     for (let key in currency) {
 
@@ -51,7 +51,7 @@ function checkPass() {
     }
 }
 
-function checkCurrencyCashBy50() {
+function checkPassBy50() {
 
     if (currency[priceTicket] >= 1) {
         currency[payVisitor] += 1;
@@ -62,7 +62,7 @@ function checkCurrencyCashBy50() {
     }
 }
 
-function checkCurrencyCashBy100() {
+function checkPassBy100() {
 
     if (((currency['50'] >= 1 && currency['25'] >= 1) || (currency['25'] >= 3))) {
 
