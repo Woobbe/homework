@@ -41,22 +41,27 @@ const listStudents = {
         startYear: 2000,
         endYear: 2001
     },showStudents: function(startYearFilter, endYearFilter) {
-        let years = [];
+        let listYears = [];
         let result = {};
-        let res = 0;
+        let count = 0;
 
         for (startYearFilter; startYearFilter <= endYearFilter; startYearFilter++) {
-            years = [];
+            listYears = [];
             for (let student in this) {
-                if (startYearFilter <= this[student].endYear && endYearFilter >= this[student].startYear) {
-                    years.push(startYearFilter);
+                if (startYearFilter >= this[student].startYear && startYearFilter <= this[student].endYear) {
+                    listYears.push(startYearFilter);
                 }
             }
-            result[startYearFilter] = years.length;
+            result[startYearFilter] = listYears.length;
         }
-        return console.log(result)
+        for (let year in result) {
+            if (count < result[year]) {
+                count = result[year];
+            }
+        }
+        console.log(result);
     }
 
 };
 
-listStudents.showStudents(2007, 2009);
+listStudents.showStudents(2000, 2009);
