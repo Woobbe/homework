@@ -1,4 +1,4 @@
-let receiptTee = {
+const receiptTee = {
     water: 200,
     tea: 5,
     sugar: 3
@@ -41,15 +41,15 @@ function checkAvailableIngredients(receipt) {
 };
 
 function showAmountCookingByReceipt(receipt) {
-    if (!(checkAvailableIngredients(receipt))) {
-        return console.log(`Извините, на складке отсутствуют необходимые ингридиенты.`);
-    } else {
+    if (checkAvailableIngredients(receipt)) {
         let amount = checkAmountCookingByReceipt(receipt);
         if (amount === 0) {
             return console.log(`К сожалению, на складе недостаточно ингридиентов для приготовления по Вашему рецепту.`);
         } else {
             return console.log(`На складе доступно ингридиентов для приготовления ${amount} порций по вашему рецепту.`);
         }
+    } else {
+        return console.log(`Извините, на складке отсутствуют необходимые ингридиенты.`);
     }
 };
 
