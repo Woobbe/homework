@@ -2,7 +2,7 @@ function sum(rest) {
 
     let resultSum = 0;
 
-    for (i of rest) {
+    for (let i of rest) {
         resultSum += i;
     }
     return resultSum;
@@ -12,7 +12,7 @@ function mul(rest) {
 
     let resultMul = 1;
 
-    for (i of rest) {
+    for (let i of rest) {
         resultMul *= i;
     }
     return resultMul;
