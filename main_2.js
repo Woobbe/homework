@@ -1,6 +1,6 @@
-function fibonacci(n) {
+console.log(fibonacci(2));
 
-     return (n <= 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
+function fibonacci(n) {
+    return (n <= 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-console.log(fibonacci(7));
