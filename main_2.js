@@ -1,14 +1,6 @@
 function fibonacci(n) {
 
-    let result = 0;
-
-    if (n <= 1) {
-    result = n;
-    } else {
-        result = fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
-    return result;
+     return (n <= 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 console.log(fibonacci(7));
