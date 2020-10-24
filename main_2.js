@@ -8,7 +8,6 @@ let payVisitor;
 let result;
 
 function getPayVisitor() {
-
     payVisitor = prompt('Внесите купюру', '');
 
     switch (payVisitor) {
@@ -31,7 +30,6 @@ function getPayVisitor() {
 }
 
 function showMessageForUser(result) {
-
     if (result) {
         console.log('Спасибо за покупку!');
         getPayVisitor();
@@ -41,9 +39,7 @@ function showMessageForUser(result) {
 }
 
 function addCurrency25() {
-
     for (let key in currency) {
-
         if (payVisitor == key && payVisitor == priceTicket) {
             currency[payVisitor] += 1;
             return true;
@@ -52,7 +48,6 @@ function addCurrency25() {
 }
 
 function checkPassBy50() {
-
     if (currency[priceTicket] >= 1) {
         currency[payVisitor] += 1;
         currency[priceTicket] -= 1;
@@ -63,7 +58,6 @@ function checkPassBy50() {
 }
 
 function checkPassBy100() {
-
     if (((currency['50'] >= 1 && currency['25'] >= 1) || (currency['25'] >= 3))) {
 
         if (currency['50'] >= 1 && currency['25'] >= 1) {
@@ -78,6 +72,4 @@ function checkPassBy100() {
     } else return false;
 }
 
-
 getPayVisitor();
-

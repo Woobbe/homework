@@ -12,7 +12,6 @@ let stock = {
 };
 
 function checkAmountCookingByReceipt(receipt) {
-
     let listPortion = [];
 
     for (let ingredient in receipt) {
@@ -25,11 +24,9 @@ function checkAmountCookingByReceipt(receipt) {
     }
 
     return Math.floor(Math.min(...listPortion));
-};
-
+}
 
 function checkAvailableIngredients(receipt) {
-
     let listReceiptIngredients = Object.keys(receipt);
     let listStockIngredients = Object.keys(stock);
 
@@ -38,7 +35,7 @@ function checkAvailableIngredients(receipt) {
     }
 
     return true;
-};
+}
 
 function showAmountCookingByReceipt(receipt) {
     if (checkAvailableIngredients(receipt)) {
@@ -51,11 +48,6 @@ function showAmountCookingByReceipt(receipt) {
     } else {
         return console.log(`Извините, на складке отсутствуют необходимые ингридиенты.`);
     }
-};
+}
 
 showAmountCookingByReceipt(receiptTee);
-
-
-
-
-
