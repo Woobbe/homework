@@ -40,7 +40,6 @@ const listStudents = {
         startYear: 2000,
         endYear: 2001
     }, showStudents: function(startYearFilter, endYearFilter) {
-
         let listYears = [];
         let result = {};
         let count = 0;
@@ -50,8 +49,8 @@ const listStudents = {
             listYears = [];
 
             for (let student in this) {
-
-                if (startYearFilter >= this[student].startYear && startYearFilter <= this[student].endYear) {
+                if (startYearFilter >= this[student].startYear
+                    && startYearFilter <= this[student].endYear) {
                     listYears.push(startYearFilter);
                 }
             }
@@ -60,9 +59,9 @@ const listStudents = {
         }
 
         for (let year in result) {
-
             if (count === result[year]) {
                 maxYear.push(year);
+                continue;
             }
 
             if (count < result[year]) {
@@ -71,10 +70,9 @@ const listStudents = {
             }
         }
 
-    return console.log(`Максимальное количество студентов было в ${maxYear} году - ${count} студентов.`);
-}
+        return console.log(`Максимальное количество студентов было в ${maxYear} году - ${count} студентов.`);
+    }
 
 };
-
 
 listStudents.showStudents(2000, 2009);
