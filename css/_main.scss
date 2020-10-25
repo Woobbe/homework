@@ -1,0 +1,66 @@
+// Aside START
+
+///////////////////////
+.main {
+  height: 100vh;
+  }
+//////////////////////
+
+.main__aside {
+  width: 249px;
+  background: #F5F2F0;
+  border-right: 1px solid #D5D2D0;
+  height: 100%;
+  }
+
+
+.aside__content {
+  padding: 23px 25px;
+  position: relative;
+  }
+
+
+.aside__section {
+  margin: 22px 0;
+  padding: 0 2px;
+  position: relative;
+  }
+
+
+.aside__section-title {
+  color: #C4C2C0;
+  margin: 12px 0;
+  font-weight: 400;
+  }
+
+.aside__navigation-link {
+  margin: 12px 0;
+  line-height: 1.25;
+  }
+
+.aside__link {
+  color: #696664;
+  
+  &:hover {
+    color: #ba1000;
+    }
+  }
+
+.aside__section-social {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+  
+  a {
+    align-items: center;
+    }
+  
+  img {
+    height: 25px;
+    opacity: 0.7;
+    
+    &:hover {
+      opacity: 1;
+      }
+    }
+  }
