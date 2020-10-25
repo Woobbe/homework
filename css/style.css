@@ -174,15 +174,14 @@ body {
   height: 30px;
 }
 
-.main {
-  height: 100vh;
-}
-
-.main__aside {
+.aside {
   width: 249px;
   background: #F5F2F0;
   border-right: 1px solid #D5D2D0;
   height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .aside__content {
@@ -211,7 +210,7 @@ body {
   color: #696664;
 }
 .aside__link:hover {
-  color: #ba1000;
+  color: #BA1000;
 }
 
 .aside__section-social {
