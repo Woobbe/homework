@@ -1,0 +1,33 @@
+.footer {
+  align-items: center;
+  background: #FBFAFA;
+  border-top: 2px solid #F3F2F1;
+  color: #9D9D9D;
+  display: flex;
+  flex-wrap: wrap;
+  height: 70px;
+  margin-left: 250px;
+  margin-top: 30px;
+  padding: 0 48px;
+  position: relative;
+  font-size: 14px;
+  }
+
+.footer__list {
+  align-items: center;
+  display: flex;
+  }
+
+.footer__item {
+  margin-right: 12px;
+  white-space: nowrap;
+  }
+
+.footer__item:not(:nth-last-child(-n+1)):after {
+  margin-left: 12px;
+  content: "|";
+  }
+
+.footer__link {
+  color: #3b86c4;
+  }
