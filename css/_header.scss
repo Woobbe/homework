@@ -12,10 +12,9 @@ body {
   width: 100%;
   height: 60px;
   align-items: center;
-  border-bottom: 4px;
-  border-color: #000;
-  //border-color: #e1e0de;
-  // TODO Проверить цвет нижней границы, ибо не отображается гадина
+  position: relative;
+  z-index: 1;
+  background: #fff;
 }
 
 .header__local {
@@ -125,3 +124,13 @@ body {
     height: 30px;
   }
 }
+
+.header__progress-bar {
+  width: 100%;
+  height: 4px;
+  //background-color: #e1e0de;
+  position: sticky;
+  background: #e1e0de;
+  z-index: 10;
+  top: 0px;
+  }
