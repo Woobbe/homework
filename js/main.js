@@ -14,3 +14,12 @@ window.onclick = function(event) {
         }
     }
 }
+
+
+function hideAside() {
+document.querySelector('.aside').classList.toggle('aside-hide');
+document.querySelector('.page__state').classList.toggle('page__state-all_width');
+document.querySelector('.aside__content').classList.toggle('aside__content-hide');
+document.querySelector('.hamburger-menu').classList.toggle('hamburger-menu-left')
+}
+

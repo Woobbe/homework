@@ -103,6 +103,12 @@
       <a href="#" class="aside__link" target="_blank">Редактировать на GitHub</a>
     </div>
   </div>
+  <div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label onclick="hideAside()" class="menu__btn" for="menu__toggle">
+      <span></span>
+    </label>
+  </div>
 </aside>
 <div class="page__state">
   <main class="main">
@@ -277,7 +283,7 @@
             </li>
           </ul>
           <div class="image">
-            <img src="/article/intro/limitations.svg" alt="request">
+            <img src="img/limitations.svg" alt="request">
           </div>
           <p>Подобные ограничения не действуют, если JavaScript используется вне браузера, например — на сервере.
             Современные браузеры предоставляют плагины/расширения, с помощью которых можно запрашивать дополнительные
@@ -375,3 +381,5 @@
 </footer>
 </body>
 </html>
+
+

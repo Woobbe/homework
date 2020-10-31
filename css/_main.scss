@@ -1,6 +1,11 @@
 .page__state {
   margin-left: 250px;
   position: relative;
+  transition: .5s;
+  }
+
+.page__state-all_width {
+  margin-left: 0;
   }
 
 .main {
