@@ -14,6 +14,7 @@ body {
   height: 60px;
   position: relative;
   width: 100%;
+  z-index: 2;
   }
 
 .header__local {
@@ -72,6 +73,7 @@ body {
   position: relative;
   transition: color .2s, box-shadow .2s, border-color .2s;
   white-space: nowrap;
+  z-index: 1;
   
   a {
     color: #CB6556;
@@ -128,9 +130,9 @@ body {
   background: #E1E0DE;
   height: 4px;
   position: sticky;
-  top: 0px;
+  top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 1;
   }
 
 .dropbtn {
@@ -142,14 +144,14 @@ body {
   outline: none;
   }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   color: #B20600;
   }
 
 .dropdown {
   display: inline-block;
   position: relative;
-  z-index: 150;
   
   &::after {
     content: '>';
