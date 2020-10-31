@@ -6,6 +6,7 @@
   <title>Введение в JavaScript</title>
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
 </head>
 <body>
 <header class="header">
@@ -22,7 +23,27 @@
       <li class="nav__item"><a href="#">Форум</a></li>
       <li class="nav__item"><a href="#">ES5</a></li>
       <li class="nav__item"><a href="#">Тесты знаний</a></li>
-      <li class="nav__item"><a href="#">Скринкасты</a></li>
+      <li class="nav__item">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Скринкасты</button>
+          <div id="myDropdown" class="dropdown-content">
+            <ul class="sitetoolbar__dropdown-items">
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/nodejs">Node.js</a></li>
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/webpack">Webpack</a></li>
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/gulp">Gulp 4</a></li>
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/react">React.js</a></li>
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/angular">Angular</a></li>
+              <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
+                                                        href="/screencast/git">Git</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
     </ul>
   </nav>
   <div class="header__buy-book">

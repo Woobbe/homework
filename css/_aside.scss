@@ -1,16 +1,13 @@
-// Aside START
-
-
 .aside {
   width: 249px;
   background: #F5F2F0;
   border-right: 1px solid #D5D2D0;
   height: 100%;
   position: fixed;
-  //top: 64px;
   left: 0;
   bottom: 0;
   font-size: 14px;
+z-index: -1;
   }
 
 
