@@ -223,24 +223,24 @@ body {
   top: 40px;
 }
 .dropdown-content:after, .dropdown-content:before {
-  border: solid transparent;
   bottom: 100%;
+  left: 50%;
+  border: solid transparent;
   content: "";
   height: 0;
-  left: 50%;
-  pointer-events: none;
-  position: absolute;
   width: 0;
+  position: absolute;
+  pointer-events: none;
 }
 .dropdown-content:after {
-  border-bottom-color: #FFF;
   border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
   border-width: 7px;
   margin-left: -7px;
 }
 .dropdown-content:before {
-  border-bottom-color: #E2E2E2;
   border-color: rgba(226, 226, 226, 0);
+  border-bottom-color: #E2E2E2;
   border-width: 10px;
   margin-left: -10px;
 }
