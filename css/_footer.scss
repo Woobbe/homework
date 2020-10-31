@@ -5,17 +5,18 @@
   color: #9D9D9D;
   display: flex;
   flex-wrap: wrap;
+  font-size: 14px;
   height: 70px;
   margin-left: 250px;
   margin-top: 30px;
   padding: 0 48px;
   position: relative;
-  font-size: 14px;
   }
 
 .footer__list {
   align-items: center;
   display: flex;
+  margin: 0 auto;
   }
 
 .footer__item {
@@ -24,10 +25,15 @@
   }
 
 .footer__item:not(:nth-last-child(-n+1)):after {
+  content: '|';
   margin-left: 12px;
-  content: "|";
   }
 
 .footer__link {
-  color: #3b86c4;
+  color: #3B86C4;
+  }
+
+.footer-all-width {
+  margin-left: 0;
+  
   }

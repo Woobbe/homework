@@ -3,6 +3,27 @@
     font-size: 14px;
     line-height: 22px;
     }
+  .breadcrumbs {
+    font-size: 14px;
+    }
+  .footer__item:not(:nth-last-child(-n+1)):after {
+    content: '';
+    }
+  }
+
+@media (max-width: 1250px) {
+  
+  .footer {
+    height: auto;
+    }
+  .footer__list {
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    }
+  .footer__item {
+    margin: 5px 0;
+    }
   }
 
 @media (max-width: 1220px) {
@@ -12,13 +33,64 @@
   }
 
 @media (max-width: 1170px) {
-  .nav__item a {
-    font-size: 14px;
+  .nav__item {
+    margin-right: 10px;
+    
+    a {
+      font-size: 14px;
+      }
     }
   }
 
 @media (max-width: 1120px) {
   .main__content {
     line-height: 19px;
+    }
+  }
+
+@media (max-width: 950px) {
+  .aside {
+    width: 0;
+    }
+  .page__state {
+    margin-left: 0;
+    }
+  .aside__content {
+    display: none;
+    }
+  .hamburger-menu {
+    left: 30px;
+    }
+  .header__logo {
+    padding: 7px 10px 0 10px;
+    }
+  .header__nav ul {
+    display: none;
+    }
+  .hamburger-menu {
+    display: none;
+    }
+  .footer {
+    margin-left: 0;
+    }
+  }
+
+@media (max-width: 750px) {
+  .main {
+    padding: 0 15px;
+    }
+  .main__header-group {
+    flex-direction: column;
+    }
+  }
+
+@media (max-width: 530px) {
+  .header__buy-book {
+    font-size: 12px;
+    padding: 0 6px;
+    }
+  .header__local {
+    padding: 10px 5px 0;
+    width: 40px;
     }
   }

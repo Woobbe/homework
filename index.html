@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Введение в JavaScript</title>
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="css/style.css" rel="stylesheet">
   <script defer src="js/main.js"></script>
 </head>
 <body>
 <header class="header">
   <div class="header__local">
-    <a href="#"><img src="img/icon/planet.png" alt="local">ru</a>
+    <a href="#"><img alt="local" src="img/icon/planet.png">ru</a>
   </div>
   <div class="header__logo">
-    <a href="#"><img src="img/logo.svg" alt="Logo JavaScript"></a>
+    <picture>
+      <source media="(max-width: 1170px) and (min-width:901px)" srcset="img/logo_small.svg">
+      <source media="(max-width: 900px) and (min-width: 531px)" srcset="img/logo.svg">
+      <source media="(max-width: 530px)" srcset="img/logo_small.svg">
+      <img alt="logo" src="img/logo.svg">
+    </picture>
   </div>
   <nav class="header__nav">
     <ul>
@@ -25,8 +30,8 @@
       <li class="nav__item"><a href="#">Тесты знаний</a></li>
       <li class="nav__item">
         <div class="dropdown">
-          <button onclick="showDropdownMenu()" class="dropbtn">Скринкасты</button>
-          <div id="myDropdown" class="dropdown-content">
+          <button class="dropbtn" onclick="showDropdownMenu()">Скринкасты</button>
+          <div class="dropdown-content" id="myDropdown">
             <ul class="sitetoolbar__dropdown-items">
               <li class="sitetoolbar__dropdown-item"><a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
                                                         href="#">Node.js</a></li>
@@ -50,10 +55,10 @@
     <a href="#">Купить EPUB/PDF</a>
   </div>
   <div class="header__login">
-    <a href="#"><img src="img/icon/person.png" alt="login"></a>
+    <a href="#"><img alt="login" src="img/icon/person.png"></a>
   </div>
   <div class="header__search">
-    <a href="#"><img src="img/icon/search.webp" alt="search"></a>
+    <a href="#"><img alt="search" src="img/icon/search.webp"></a>
   </div>
 </header>
 <div class="header__progress-bar"></div>
@@ -65,7 +70,7 @@
       <nav class="aside__navigation">
         <ul class="aside__navigation__links">
           <li class="aside__navigation-link">
-            <a href="#" class="aside__link">Введение</a>
+            <a class="aside__link" href="#">Введение</a>
           </li>
         </ul>
       </nav>
@@ -74,38 +79,38 @@
       <h4 class="aside__section-title">Навигация по уроку</h4>
       <nav class="aside__navigation">
         <ul class="aside__navigation__links">
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Что такое JavaScript?</a></li>
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Что может JavaScript в браузере?</a></li>
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Чего НЕ может JavaScript в браузере?</a>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Что такое JavaScript?</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Что может JavaScript в браузере?</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Чего НЕ может JavaScript в браузере?</a>
           </li>
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Что делает JavaScript особенным?</a></li>
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Языки «над» JavaScript</a></li>
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Итого</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Что делает JavaScript особенным?</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Языки «над» JavaScript</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Итого</a></li>
         </ul>
       </nav>
     </div>
     <div class="aside__section">
       <nav class="aside__navigation">
         <ul class="aside__navigation-links">
-          <li class="aside__navigation-link"><a href="#" class="aside__link">Комментарии</a></li>
+          <li class="aside__navigation-link"><a class="aside__link" href="#">Комментарии</a></li>
         </ul>
       </nav>
     </div>
     <div class="aside__section">
       <h4 class="aside__section-title">Поделиться</h4>
       <div class="aside__section-social">
-        <a href="#" target="_blank"><img src="img/icon/twitter.svg" alt="twitter"></a>
-        <a href="#" target="_blank"><img src="img/icon/facebook.svg" alt="facebook"></a>
-        <a href="#" target="_blank"><img src="img/icon/vk.svg" alt="vkontakte"></a>
+        <a href="#" target="_blank"><img alt="twitter" src="img/icon/twitter.svg"></a>
+        <a href="#" target="_blank"><img alt="facebook" src="img/icon/facebook.svg"></a>
+        <a href="#" target="_blank"><img alt="vkontakte" src="img/icon/vk.svg"></a>
       </div>
     </div>
     <div class="aside__section">
-      <a href="#" class="aside__link" target="_blank">Редактировать на GitHub</a>
+      <a class="aside__link" href="#" target="_blank">Редактировать на GitHub</a>
     </div>
   </div>
   <div class="hamburger-menu">
     <input id="menu__toggle" type="checkbox" />
-    <label onclick="hideAside()" class="menu__btn" for="menu__toggle">
+    <label class="menu__btn" for="menu__toggle" onclick="hideAside()">
       <span></span>
     </label>
   </div>
@@ -118,11 +123,11 @@
           <div class="main__header-group">
             <ul class="breadcrumbs">
               <li class="breadcrumbs__item breadcrumbs__item-home">
-                <a href="#" class="breadcrumbs__link">
+                <a class="breadcrumbs__link" href="#">
                   <?xml version="1.0" encoding="iso-8859-1"?>
-                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                       x="0px" y="0px"
-                       viewBox="0 0 27.02 27.02" style="enable-background:new 0 0 27.02 27.02;" xml:space="preserve">
+                  <svg id="Capa_1" style="enable-background:new 0 0 27.02 27.02;" version="1.1"
+                       viewBox="0 0 27.02 27.02" x="0px"
+                       xml:space="preserve" xmlns="http://www.w3.org/2000/svg" y="0px">
 <g>
 	<path d="M3.674,24.876c0,0-0.024,0.604,0.566,0.604c0.734,0,6.811-0.008,6.811-0.008l0.01-5.581
 		c0,0-0.096-0.92,0.797-0.92h2.826c1.056,0,0.991,0.92,0.991,0.92l-0.012,5.563c0,0,5.762,0,6.667,0
@@ -135,18 +140,18 @@
                 </a>
               </li>
               <li class="breadcrumbs__item">
-                <a href="#" class="breadcrumbs__link">
+                <a class="breadcrumbs__link" href="#">
                   <span>Язык программирования JavaScript</span>
                 </a>
               </li>
               <li class="breadcrumbs__item">
-                <a href="#" class="breadcrumbs__link">
+                <a class="breadcrumbs__link" href="#">
                   <span>Введение</span>
                 </a>
               </li>
             </ul>
             <div class="current-date">
-              <img src="img/icon/calendar.svg" alt="calendar">
+              <img alt="calendar" src="img/icon/calendar.svg">
               12-го сентября 2020
             </div>
           </div>
@@ -169,7 +174,7 @@
           <p>Это отличает JavaScript от другого языка – <a href="#">Java</a>.</p>
           <div class="important important_smart">
             <div class="important__header">
-              <img src="img/icon/info-icon.svg" alt="info">
+              <img alt="info" src="img/icon/info-icon.svg">
               <span class="important__type">Почему <u>Java</u>Script?</span>
             </div>
             <div class="important__content">
@@ -201,7 +206,7 @@
             и Opera.</p>
           <div class="important important_smart">
             <div class="important__header">
-              <img src="img/icon/info-icon.svg" alt="info">
+              <img alt="info" src="img/icon/info-icon.svg">
               <span class="important__type">Как работают движки?</span>
             </div>
             <div class="important__content">
@@ -283,7 +288,7 @@
             </li>
           </ul>
           <div class="image">
-            <img src="img/limitations.svg" alt="request">
+            <img alt="request" src="img/limitations.svg">
           </div>
           <p>Подобные ограничения не действуют, если JavaScript используется вне браузера, например — на сервере.
             Современные браузеры предоставляют плагины/расширения, с помощью которых можно запрашивать дополнительные
@@ -354,7 +359,7 @@
         
         </article>
       </div>
-
+    
     </div>
   </main>
 </div>
