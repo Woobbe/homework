@@ -1,43 +1,39 @@
 // Вариант №1
 
 for (var i = 0; i < 10; i++) {
-    var b = i;
-    setTimeout(console.log, 10, ++b);
+    setTimeout(console.log, 10, i+1);
 }
 
 // Вариант №2
 for(var i = 0; i < 10; i++) {
-    var b = i;
-    setTimeout(function(b) {
-        console.log(++b);
-    }, 10, b)
+    setTimeout(function(i) {
+        console.log(i+1);
+    }, 10, i)
 }
 
 // Вариант №3
 function counter(i) {
-    console.log(++i);
+    console.log(i);
 }
 
 for (var i = 0; i < 10; i++) {
-    setTimeout(counter, 10, i);
+    setTimeout(counter, 10, i+1);
 }
 
 // Вариант №4
 for (var i = 0; i < 10; i++) {
-    (function counter() {
-        var b = i;
+    (function counter(i) {
         return setTimeout(function() {
-            console.log(++b);
+            console.log(i+1);
         }, 10)
-    })();
+    })(i);
 }
 
-// Обратный порядок - знаю, что вариант не подходит, но решил оставить на память =)
+// Shift нельзя использовать, но так легко меняется на обратный порядок через pop() - знаю, что вариант не подходит, но решил оставить на память =)
 var array = [];
 for (var i = 0; i < 10; i++) {
-    var b = i;
-    array.push(++b);
+    array.push(i+1);
     setTimeout(function() {
-        console.log(array.pop())
+        console.log(array.shift())
     },10)
 }
