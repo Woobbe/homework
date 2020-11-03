@@ -22,4 +22,3 @@ function hideAside() {
     document.querySelector('.hamburger-menu').classList.toggle('hamburger-menu-left');
     document.querySelector('.footer').classList.toggle('footer-all-width');
 }
-

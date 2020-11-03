@@ -10,9 +10,11 @@ body {
 .header {
   align-items: center;
   background: #FFF;
+  border-bottom: 4px solid #E1E0DE;
   display: flex;
   height: 60px;
-  position: relative;
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: 3;
   }
@@ -106,10 +108,18 @@ body {
 
 .header__login {
   margin-right: 8px;
+
+  img {
+    height: 30px;
+    }
   }
 
 .header__search {
   margin-right: 24px;
+  
+  img {
+    height: 25px;
+    }
   }
 
 
@@ -119,10 +129,6 @@ body {
   
   &:hover {
     opacity: 0.8;
-    }
-  
-  img {
-    height: 30px;
     }
   }
 

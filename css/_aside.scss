@@ -71,24 +71,27 @@
   transition: .5s;
   }
 
+.header__hamburger-menu {
+  left: 15px;
+  position: absolute;
+  top: 15px;
+  transition: .5s;
+  display: none;
+  }
+
 .hamburger-menu-left {
   left: 30px;
   }
 
 
-#menu__toggle {
-  opacity: 0;
-  }
 
 .menu__btn {
   align-items: center;
   cursor: pointer;
   display: flex;
   height: 26px;
-  
   left: 20px;
   top: 20px;
-  
   width: 26px;
   }
 
@@ -97,12 +100,9 @@
 .menu__btn > span::after {
   background-color: #616161;
   display: block;
-  
   height: 2px;
   position: absolute;
-  
   transition-duration: .25s;
-  
   width: 100%;
   }
 
@@ -122,4 +122,8 @@
 
 .aside__content-hide {
   display: none;
+  }
+
+aside .mobile__aside-show {
+  width: 33%;
   }

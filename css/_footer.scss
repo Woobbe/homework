@@ -10,7 +10,10 @@
   margin-left: 250px;
   margin-top: 30px;
   padding: 0 48px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 250px);
+  transition: .5s;
   }
 
 .footer__list {
@@ -35,5 +38,5 @@
 
 .footer-all-width {
   margin-left: 0;
-  
+  width: 100%;
   }

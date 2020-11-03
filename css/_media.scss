@@ -12,7 +12,9 @@
   }
 
 @media (max-width: 1250px) {
-  
+  .page__state {
+    margin-bottom: 182px;
+    }
   .footer {
     height: auto;
     }
@@ -59,7 +61,10 @@
     display: none;
     }
   .hamburger-menu {
-    left: 30px;
+    display: none;
+    }
+  .header__local a {
+    display: none;
     }
   .header__logo {
     padding: 7px 10px 0 10px;
@@ -67,11 +72,25 @@
   .header__nav ul {
     display: none;
     }
-  .hamburger-menu {
-    display: none;
-    }
   .footer {
     margin-left: 0;
+    width: 100%;
+    }
+  .header__hamburger-menu {
+    display: block;
+    }
+  .aside-hide {
+    width: 33%;
+    }
+  .page__state-all_width {
+    margin-left: 33%;
+    }
+  .aside__content-hide {
+    display: block;
+    }
+  .footer-all-width {
+    margin-left: 33%;
+    width: 67%;
     }
   }
 
@@ -85,6 +104,9 @@
   }
 
 @media (max-width: 530px) {
+  .header__hamburger-menu {
+    left: 7px;
+    }
   .header__buy-book {
     font-size: 12px;
     padding: 0 6px;
@@ -92,5 +114,14 @@
   .header__local {
     padding: 10px 5px 0;
     width: 40px;
+    }
+  .aside-hide {
+    width: 100%;
+    }
+  .page__state-all_width {
+    display: none;
+    }
+  .footer-all-width {
+    display: none;
     }
   }
