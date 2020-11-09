@@ -13,8 +13,9 @@ const maths = {
         return this;
     },
     showResult: function() {
-        console.log(this.a)
+        console.log(this.a);
+        return this;
     }
 };
 
-maths.sum(5).sum(10).minus(3).multiplay(2).showResult();
+maths.sum(5).sum(10).minus(3).multiplay(2).showResult().minus(3).multiplay(2).showResult();
