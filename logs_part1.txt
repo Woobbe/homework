@@ -1,0 +1,37 @@
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{0}: merge develop: Fast-forward
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{1}: checkout: moving from HW15_Git_2 to HW15_Git
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{2}: checkout: moving from HW15_Git_1 to HW15_Git_2
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{3}: merge develop: Fast-forward
+94a475d HEAD@{4}: checkout: moving from develop to HW15_Git_1
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{5}: merge HW15_Git_2: Fast-forward
+94a475d HEAD@{6}: merge HW15_Git_1: Fast-forward
+31106ba HEAD@{7}: checkout: moving from HW15_Git_2 to develop
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{8}: commit: HW_16_1: Git practice - delete aside(index.html)
+c75ef48 HEAD@{9}: commit: HW_16_1: Git practice - add css/style.css
+94a475d HEAD@{10}: checkout: moving from HW15_Git_1 to HW15_Git_2
+94a475d HEAD@{11}: commit: HW_16_1: Git practice - add img in footer(index.html)
+c8e5d50 HEAD@{12}: commit: HW_16_1: Git practice - add some img and main.js
+31106ba HEAD@{13}: checkout: moving from develop to HW15_Git_1
+31106ba HEAD@{14}: commit: HW_16_1: Git practice - add index.html
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from HW15_Git to develop
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{16}: checkout: moving from main to HW15_Git
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from develo:...skipping...
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{0}: merge develop: Fast-forward
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{1}: checkout: moving from HW15_Git_2 to HW15_Git
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{2}: checkout: moving from HW15_Git_1 to HW15_Git_2
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{3}: merge develop: Fast-forward
+94a475d HEAD@{4}: checkout: moving from develop to HW15_Git_1
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{5}: merge HW15_Git_2: Fast-forward
+94a475d HEAD@{6}: merge HW15_Git_1: Fast-forward
+31106ba HEAD@{7}: checkout: moving from HW15_Git_2 to develop
+f466ad5 (HEAD -> HW15_Git, develop, HW15_Git_2, HW15_Git_1) HEAD@{8}: commit: HW_16_1: Git practice - delete aside(index.html)
+c75ef48 HEAD@{9}: commit: HW_16_1: Git practice - add css/style.css
+94a475d HEAD@{10}: checkout: moving from HW15_Git_1 to HW15_Git_2
+94a475d HEAD@{11}: commit: HW_16_1: Git practice - add img in footer(index.html)
+c8e5d50 HEAD@{12}: commit: HW_16_1: Git practice - add some img and main.js
+31106ba HEAD@{13}: checkout: moving from develop to HW15_Git_1
+31106ba HEAD@{14}: commit: HW_16_1: Git practice - add index.html
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from HW15_Git to develop
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{16}: checkout: moving from main to HW15_Git
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from develop to main
+8cdd39c (origin/main, origin/HEAD, main) HEAD@{18}: checkout: moving from main to develop
