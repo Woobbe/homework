@@ -7,6 +7,7 @@
   <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="css/style.css" rel="stylesheet">
   <script defer src="js/main.js"></script>
+  <script defer src="js/main_17-2-table.js"></script>
 </head>
 <body>
 <header class="header">
@@ -92,7 +93,7 @@
       <nav class="aside__navigation">
         <ul class="aside__navigation__links">
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#chto-takoe-javascript">Что такое JavaScript?</a>
+            <a class="aside__link aside__link-table" href="#chto-takoe-javascript">Таблица</a>
           </li>
           <li class="aside__navigation-link">
             <a class="aside__link" href="#chto-mozhet-javascript-v-brauzere">Что может JavaScript в браузере?</a>
@@ -369,6 +370,13 @@
         </article>
       </div>
     </div>
+    <section class="main__section-table hide">
+      <form class="table__form" action="">
+      <input type="number" id="rows" min="1" placeholder="Rows" required>
+      <input type="number" id="columns" min="1" placeholder="Columns" required>
+      <button id="table-button">Сгенерировать</button>
+      </form>
+    </section>
   </main>
 </div>
 
