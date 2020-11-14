@@ -1,29 +1,43 @@
-class Time {
+function getCurrentTime() {
+    let currentData = new Date();
+    let currentHours = currentData.getHours();
+    let currentMinutes = currentData.getMinutes();
+    let currentSeconds = currentData.getSeconds();
 
-    constructor() {
-        this.currentTime = new Date();
-        this.currentSeconds = this.currentTime.getSeconds();
-        this.currentMinutes = this.currentTime.getMinutes();
-        this.currentHours = this.currentTime.getHours();
-    }
+    if (currentHours < 10) currentHours = '0' + currentHours;
+    if (currentMinutes < 10) currentMinutes = '0' + currentMinutes;
+    if (currentSeconds < 10) currentSeconds = '0' + currentSeconds;
 
-    showTime(headerTimeSelector) {
-        this.spanWrapperTime = document.querySelector(headerTimeSelector);
-        this.spanSeconds = this.spanWrapperTime.lastElementChild;
-        this.spanMinutes = this.spanSeconds.previousElementSibling;
-        this.spanHours = this.spanMinutes.previousElementSibling;
-
-        this.spanSeconds.textContent = this.currentSeconds;
-        this.spanMinutes.textContent = this.currentMinutes;
-        this.spanHours.textContent = this.currentHours;
-
-    }
-
+    return [currentHours, currentMinutes, currentSeconds];
 }
 
-function currentDate2() {
-    let headerCurrentTime = new Time();
-    headerCurrentTime.showTime('.header__current-time');
+
+function showCurrentTime(selectorTimeWrapper, separator) {
+    const spanWrapperTime = document.querySelector(selectorTimeWrapper);
+    const spanSeconds = spanWrapperTime.lastElementChild;
+    const spanMinutes = spanSeconds.previousElementSibling;
+    const spanHours = spanMinutes.previousElementSibling;
+    let [currentHours, currentMinutes, currentSeconds] = getCurrentTime();
+
+    spanHours.after(separator);
+    spanMinutes.after(separator);
+    spanSeconds.textContent = currentSeconds;
+    spanMinutes.textContent = currentMinutes;
+    spanHours.textContent = currentHours;
+
+    setInterval(insertCurrentTime, 1000, spanHours, spanMinutes, spanSeconds);
 }
 
-setInterval(currentDate2, 1000);
+function insertCurrentTime(spanHours, spanMinutes, spanSeconds) {
+    let [currentHours, currentMinutes, currentSeconds] = getCurrentTime();
+
+    spanSeconds.textContent = currentSeconds;
+
+    if(currentSeconds == '00') spanMinutes.textContent = currentMinutes;
+
+    if(currentMinutes == '00' && currentSeconds == '00') {
+        spanHours.textContent = currentHours;
+    }
+}
+
+showCurrentTime('.header__current-time', ':');

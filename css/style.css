@@ -121,6 +121,11 @@ body {
   color: #B20600;
 }
 
+.header__current-time {
+  margin-right: 20px;
+  color: #696664;
+}
+
 .header__buy-book {
   border-radius: 34px;
   box-shadow: inset 0 0 0 2px #F8E8E5;
