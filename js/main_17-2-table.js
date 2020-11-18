@@ -60,8 +60,8 @@ function createIndexTitle(rowIndex, columnIndex) {
 }
 
 function showTableGenerator() {
-    document.querySelector('.main__wrapper').classList.add('hide');
-    document.querySelector('.main__section-table').classList.remove('hide');
+    document.querySelector('.main__wrapper').classList.toggle('hide');
+    document.querySelector('.main__section-table').classList.toggle('hide');
 }
 
 tableButton.onclick = createTable;
