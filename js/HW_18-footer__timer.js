@@ -55,20 +55,20 @@ function timer(timerHours, timerMinutes, timerSeconds) {
     timerSeconds.textContent = plusZerro(secondsValue);
 }
 
-document.addEventListener('DOMContentLoaded', createTimer.bind(null, '#footer__timer', ':'));
-
-timerFooter.addEventListener('mouseover', stopTimer);
-timerFooter.addEventListener('mouseout', startTimer);
-document.addEventListener('keydown', resetTimer);
-
 function stopTimer() {
     clearInterval(indexInterval);
 }
 
 function resetTimer(event) {
-    if (event.code  === 'Escape') {
+    if (event.code === 'Escape') {
         document.querySelector('.timer-hours').textContent = '00';
         document.querySelector('.timer-minutes').textContent = '00';
         document.querySelector('.timer-seconds').textContent = '00';
     }
 }
+
+document.addEventListener('DOMContentLoaded', createTimer.bind(null, '#footer__timer', ':'));
+timerFooter.addEventListener('mouseover', stopTimer);
+timerFooter.addEventListener('mouseout', startTimer);
+document.addEventListener('keydown', resetTimer);
+
