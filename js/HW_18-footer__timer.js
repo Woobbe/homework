@@ -59,7 +59,16 @@ document.addEventListener('DOMContentLoaded', createTimer.bind(null, '#footer__t
 
 timerFooter.addEventListener('mouseover', stopTimer);
 timerFooter.addEventListener('mouseout', startTimer);
+document.addEventListener('keydown', resetTimer);
 
 function stopTimer() {
     clearInterval(indexInterval);
+}
+
+function resetTimer(event) {
+    if (event.code  === 'Escape') {
+        document.querySelector('.timer-hours').textContent = '00';
+        document.querySelector('.timer-minutes').textContent = '00';
+        document.querySelector('.timer-seconds').textContent = '00';
+    }
 }
