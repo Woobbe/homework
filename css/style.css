@@ -629,7 +629,7 @@ a.main__anchor:hover {
   border-top: 2px solid #F3F2F1;
   color: #9D9D9D;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   font-size: 14px;
   height: 70px;
   margin-left: 250px;
@@ -664,6 +664,15 @@ a.main__anchor:hover {
 .footer-all-width {
   margin-left: 0;
   width: 100%;
+}
+
+#footer__timer {
+  border: 1px solid #3B86C4;
+  padding: 5px 10px;
+  background: lawngreen;
+}
+#footer__timer:hover {
+  background: red;
 }
 
 @media (max-width: 1420px) {
