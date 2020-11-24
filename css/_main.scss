@@ -252,3 +252,27 @@ a.main__anchor {
       }
     }
   }
+
+.main__section-slider {
+  padding-top: 150px;
+  }
+
+.slider-container {
+  width: 640px;
+  height: 426px;
+  box-shadow: 0 0 10px 0 #000;
+  border-radius: 10px;
+  position: relative;
+  margin: 0 auto;
+  //overflow: hidden;
+  }
+
+.slider__item {
+  position: absolute;
+  transition: all ease 1s;
+  left: 0;
+  top: 0;
+  width: 640px;
+  height: 426px;
+  border-radius: 9px;
+  }

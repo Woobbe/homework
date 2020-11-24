@@ -9,6 +9,7 @@
   <script defer src="js/main.js"></script>
   <script defer src="js/main_17-2-table.js"></script>
   <script defer src="js/main_17-3-clock.js"></script>
+  <script defer src="js/HW_19/HW_19-infinity_slider.js"></script>
 </head>
 <body>
 <header class="header">
@@ -97,7 +98,7 @@
             <a class="aside__link aside__link-table" href="#chto-takoe-javascript">Таблица</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#chto-mozhet-javascript-v-brauzere">Что может JavaScript в браузере?</a>
+            <a class="aside__link" href="#chto-mozhet-javascript-v-brauzere">Бесконечный слайдер</a>
           </li>
           <li class="aside__navigation-link">
             <a class="aside__link" href="#chego-ne-mozhet-javascript-v-brauzere">Чего НЕ может JavaScript в браузере?</a>
@@ -146,7 +147,7 @@
 </aside>
 <div class="page__state">
   <main class="main">
-    <div class="main__wrapper">
+    <div class="main__wrapper hide">
       <header class="main__header">
         <div class="main__header-inner">
           <div class="main__header-group">
@@ -377,6 +378,17 @@
       <input type="number" id="columns" min="1" placeholder="Columns" required>
       <button id="table-button">Сгенерировать</button>
       </form>
+    </section>
+    <section class="main__section-slider">
+        <div class="slider-container">
+          <img src="img/slider/aerial-2203634_640.jpg" class="slider__item" alt="some picture">
+          <img src="img/slider/boy-3614307_640.jpg" class="slider__item" alt="some picture">
+          <img src="img/slider/columns-5747584_640.jpg" class="slider__item" alt="some picture">
+          <img src="img/slider/sea-164989_640.jpg" class="slider__item" alt="some picture">
+          <img src="img/slider/woman-591576_640.jpg" class="slider__item" alt="some picture">
+        </div>
+        <button class="slider__button-prev"></button>
+        <button class="slider__button-next"></button>
     </section>
   </main>
 </div>
