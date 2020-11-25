@@ -10,6 +10,7 @@
   <script defer src="js/main_17-2-table.js"></script>
   <script defer src="js/main_17-3-clock.js"></script>
   <script defer src="js/HW_19/HW_19-infinity_slider.js"></script>
+  <script defer src="js/HW_19/HW_19-students.js"></script>
 </head>
 <body>
 <header class="header">
@@ -98,10 +99,10 @@
             <a class="aside__link aside__link-table" href="#chto-takoe-javascript">Таблица</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#chto-mozhet-javascript-v-brauzere">Бесконечный слайдер</a>
+            <a class="aside__link aside__link-slider" href="#chto-mozhet-javascript-v-brauzere">Бесконечный слайдер</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#chego-ne-mozhet-javascript-v-brauzere">Чего НЕ может JavaScript в браузере?</a>
+            <a class="aside__link aside__link-students" href="#chego-ne-mozhet-javascript-v-brauzere">Студенты</a>
           </li>
           <li class="aside__navigation-link">
             <a class="aside__link" href="#chto-delaet-javascript-osobennym">Что делает JavaScript особенным?</a>
@@ -147,7 +148,7 @@
 </aside>
 <div class="page__state">
   <main class="main">
-    <div class="main__wrapper hide">
+    <div class="main__wrapper">
       <header class="main__header">
         <div class="main__header-inner">
           <div class="main__header-group">
@@ -379,7 +380,7 @@
       <button id="table-button">Сгенерировать</button>
       </form>
     </section>
-    <section class="main__section-slider">
+    <section class="main__section-slider hide">
         <div class="slider-wrapper">
           <div class="slide active">
             <img src="img/slider/aerial-2203634_640.jpg" class="slider__item" alt="some picture">
@@ -400,6 +401,24 @@
           <button id="btn-next"><i class="arrow right"></i></button>
           <div class="dots-wrapper"></div>
         </div>
+    </section>
+    <section class="main__section-students hide">
+    <div class="students__wrapper">
+      <form class="students__form" action="/" method="post">
+        <label for="student__first-name">Имя</label>
+        <input type="text" name="first-name" id="student__first-name">
+        <label for="student__second-name">Фамилия</label>
+        <input type="text" name="second-name" id="student__second-name">
+        <label for="student__age">Возраст</label>
+        <input type="number" name="age" id="student__age">
+        <label for="student__course">Курс</label>
+        <input type="number" name="course" id="student__course">
+        <label for="student__date-start">Дата начала</label>
+        <input type="date" name="date-start" id="student__date-start">
+        <label for="student__date-end">Дата окончания</label>
+        <input type="date" name="date-end" id="student__date-end">
+      </form>
+    </div>
     </section>
   </main>
 </div>

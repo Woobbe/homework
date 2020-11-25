@@ -60,8 +60,10 @@ function createIndexTitle(rowIndex, columnIndex) {
 }
 
 function showTableGenerator() {
-    document.querySelector('.main__wrapper').classList.toggle('hide');
-    document.querySelector('.main__section-table').classList.toggle('hide');
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-table').classList.remove('hide');
 }
 
 tableButton.onclick = createTable;

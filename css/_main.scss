@@ -207,7 +207,8 @@ a.main__anchor {
     }
   }
 
-.table__form{
+.table__form,
+.students__form{
   width: 200px;
   margin: 25% auto;
   
@@ -253,6 +254,10 @@ a.main__anchor {
     }
   }
 
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  }
 
 .main__section-slider {
   position: relative;
@@ -358,3 +363,10 @@ a.main__anchor {
 .dot.active {
   opacity: .9;
   }
+
+
+.students__form{
+  width: 350px;
+  padding: 15px;
+  border: 4px solid #f8f9fa;
+}

@@ -1,3 +1,4 @@
+const buttonShowSlider = document.querySelector('.aside__link-slider');
 const buttonPrev = document.getElementById('btn-prev');
 const buttonNext = document.getElementById('btn-next');
 const slidesCollection = document.querySelectorAll('.slide');
@@ -55,8 +56,17 @@ dots.forEach((dot, indexDot) => {
     });
 });
 
+function showSlider() {
+   document.querySelector('.main__wrapper').classList.add('hide');
+   document.querySelector('.main__section-table').classList.add('hide');
+   document.querySelector('.main__section-students').classList.add('hide');
+   document.querySelector('.main__section-slider').classList.remove('hide');
+}
+
 buttonNext.addEventListener('click', nextSlide);
 buttonPrev.addEventListener('click', prevSlide);
+
+buttonShowSlider.addEventListener('click', showSlider);
 
 const interval = setInterval(nextSlide, 2000);
 
