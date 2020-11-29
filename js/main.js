@@ -22,3 +22,10 @@ function hideAside() {
     document.querySelector('.hamburger-menu').classList.toggle('hamburger-menu-left');
     document.querySelector('.footer').classList.toggle('footer-all-width');
 }
+
+function showSlider() {
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-table').classList.add('hide');
+    document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.remove('hide');
+}

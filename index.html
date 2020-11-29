@@ -88,7 +88,7 @@
     <div class="aside__section">
       <h4 class="aside__section-title">Раздел</h4>
       <div class="aside__navigation">
-            <a class="aside__link" href="#">Введение</a>
+        <a class="aside__link" href="#">Введение</a>
       </div>
     </div>
     <div class="aside__section">
@@ -375,50 +375,39 @@
     </div>
     <section class="main__section-table hide">
       <form class="table__form" action="" onsubmit="return false;">
-      <input type="number" id="rows" min="1" placeholder="Rows" required>
-      <input type="number" id="columns" min="1" placeholder="Columns" required>
-      <button id="table-button">Сгенерировать</button>
+        <input type="number" id="rows" min="1" placeholder="Rows" required>
+        <input type="number" id="columns" min="1" placeholder="Columns" required>
+        <button id="table-button">Сгенерировать</button>
       </form>
     </section>
     <section class="main__section-slider hide">
-        <div class="slider-wrapper">
-          <div class="slide active">
-            <img src="img/slider/aerial-2203634_640.jpg" class="slider__item" alt="some picture">
-          </div>
-          <div class="slide">
-            <img src="img/slider/boy-3614307_640.jpg" class="slider__item" alt="some picture">
-          </div>
-          <div class="slide">
-            <img src="img/slider/columns-5747584_640.jpg" class="slider__item" alt="some picture">
-          </div>
-          <div class="slide">
-            <img src="img/slider/sea-164989_640.jpg" class="slider__item" alt="some picture">
-          </div>
-          <div class="slide">
-            <img src="img/slider/woman-591576_640.jpg" class="slider__item" alt="some picture">
-          </div>
-          <button id="btn-prev"><i class="arrow left"></i></button>
-          <button id="btn-next"><i class="arrow right"></i></button>
-          <div class="dots-wrapper"></div>
-        </div>
+      <div class="slider-container">
+        <img src="img/slider/aerial-2203634_640.jpg" class="slider__item" alt="some picture">
+        <img src="img/slider/boy-3614307_640.jpg" class="slider__item" alt="some picture">
+        <img src="img/slider/columns-5747584_640.jpg" class="slider__item" alt="some picture">
+        <img src="img/slider/sea-164989_640.jpg" class="slider__item" alt="some picture">
+        <img src="img/slider/woman-591576_640.jpg" class="slider__item" alt="some picture">
+      </div>
+      <!--        <button class="slider__button-prev"></button>-->
+      <!--        <button class="slider__button-next"></button>-->
     </section>
     <section class="main__section-students hide">
-    <div class="students__wrapper">
-      <form class="students__form" action="/" method="post">
-        <label for="student__first-name">Имя</label>
-        <input type="text" name="first-name" id="student__first-name">
-        <label for="student__second-name">Фамилия</label>
-        <input type="text" name="second-name" id="student__second-name">
-        <label for="student__age">Возраст</label>
-        <input type="number" name="age" id="student__age">
-        <label for="student__course">Курс</label>
-        <input type="number" name="course" id="student__course">
-        <label for="student__date-start">Дата начала</label>
-        <input type="date" name="date-start" id="student__date-start">
-        <label for="student__date-end">Дата окончания</label>
-        <input type="date" name="date-end" id="student__date-end">
-      </form>
-    </div>
+      <div class="students__wrapper">
+        <form class="students__form" action="/" method="post">
+          <label for="student__first-name">Имя</label>
+          <input type="text" name="first-name" id="student__first-name">
+          <label for="student__second-name">Фамилия</label>
+          <input type="text" name="second-name" id="student__second-name">
+          <label for="student__age">Возраст</label>
+          <input type="number" name="age" id="student__age">
+          <label for="student__course">Курс</label>
+          <input type="text" name="course" id="student__course">
+          <label for="student__date-start">Дата начала</label>
+          <input type="date" name="date-start" id="student__date-start">
+          <label for="student__date-end">Дата окончания</label>
+          <input type="date" name="date-end" id="student__date-end">
+        </form>
+      </div>
     </section>
   </main>
 </div>

@@ -1,72 +1,62 @@
-const buttonShowSlider = document.querySelector('.aside__link-slider');
-const buttonPrev = document.getElementById('btn-prev');
-const buttonNext = document.getElementById('btn-next');
-const slidesCollection = document.querySelectorAll('.slide');
-const dots = createDot('.dots-wrapper');
+const sliderBtnAside = document.querySelector('.aside__link-slider');
+const defaults = {
+    index: 0,
+    interval: 2000,
+    selectorWrapper: '.slider-container',
+    offset: 0
+};
 
-let index = 0;
+function startSlider() {
+    const sliderWrapper = document.querySelector(defaults.selectorWrapper);
+    const sliderWrapperWidth = sliderWrapper.offsetWidth;
+    const slidesList = getSlidesList(sliderWrapper);
+    let offset = 0;
 
-function createDot(wrapperSelector) {
-    let wrapper = document.querySelector(wrapperSelector);
-    let dots = [];
+    createSlide(sliderWrapper, sliderWrapperWidth, slidesList, offset);
+    offset = 1;
+    createSlide(sliderWrapper, sliderWrapperWidth, slidesList, offset);
 
-    for(let i = 0; i < slidesCollection.length; i++) {
-        let dot = document.createElement('div');
-        dot.classList.add('dot');
-        wrapper.append(dot);
-        dots.push(dot);
+    setInterval(moveSliderLeft, defaults.interval, sliderWrapper, sliderWrapperWidth, slidesList, offset);
+    sliderBtnAside.removeEventListener('click', startSlider);
+}
+
+function getSlidesList(sliderWrapper) {
+    const slides = sliderWrapper.querySelectorAll('img');
+    const slidesList = [];
+
+    for (let i = 0; i < slides.length; i++) {
+        slidesList[i] = slides[i].src;
+        slides[i].remove();
     }
-    return dots;
+    return slidesList;
 }
 
-function activeSlide(index) {
-    for (let i = 0; i < slidesCollection.length; i++) {
-        slidesCollection[i].classList.remove('active');
-        dots[i].classList.remove('active');
-    }
+function createSlide(sliderWrapper, sliderWrapperWidth, slidesList, offset) {
+    const slide = document.createElement('img');
+    slide.className = 'slider__item';
+    slide.src = slidesList[defaults.index];
+    slide.style.left = offset * sliderWrapperWidth + 'px';
+    sliderWrapper.append(slide);
 
-    slidesCollection[index].classList.add('active');
-    dots[index].classList.add('active');
+    defaults.index + 1 === slidesList.length
+        ? defaults.index = 0
+        : ++defaults.index;
 }
 
-function nextSlide() {
-    if (index === slidesCollection.length - 1) {
-        index = 0;
-        activeSlide(index);
-    } else {
-        index++;
-        activeSlide(index);
-    }
+function moveSliderLeft(sliderWrapper, sliderWrapperWidth, slidesList, offset) {
+    const currentSlides = sliderWrapper.querySelectorAll('img');
+
+    currentSlides[0].style.left = -sliderWrapperWidth + 'px';
+    // Принудительно вызываем reflow!!!
+    currentSlides[1].offsetHeight;
+    currentSlides[1].style.left = '0px';
+
+    currentSlides[0].addEventListener('transitionend', () => {
+        currentSlides[0].remove();
+        createSlide(sliderWrapper, sliderWrapperWidth, slidesList, offset);
+    }, {once: true});
 }
 
-function prevSlide() {
-    if (index === 0) {
-        index = slidesCollection.length - 1;
-        activeSlide(index);
-    } else {
-        index--;
-        activeSlide(index);
-    }
-}
-
-dots.forEach((dot, indexDot) => {
-    dot.addEventListener('click', () => {
-        index = indexDot;
-        activeSlide(index);
-    });
-});
-
-function showSlider() {
-   document.querySelector('.main__wrapper').classList.add('hide');
-   document.querySelector('.main__section-table').classList.add('hide');
-   document.querySelector('.main__section-students').classList.add('hide');
-   document.querySelector('.main__section-slider').classList.remove('hide');
-}
-
-buttonNext.addEventListener('click', nextSlide);
-buttonPrev.addEventListener('click', prevSlide);
-
-buttonShowSlider.addEventListener('click', showSlider);
-
-const interval = setInterval(nextSlide, 2000);
+sliderBtnAside.addEventListener('click', showSlider)
+sliderBtnAside.addEventListener('click', startSlider);
 

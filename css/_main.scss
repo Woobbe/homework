@@ -208,28 +208,28 @@ a.main__anchor {
   }
 
 .table__form,
-.students__form{
+.students__form {
   width: 200px;
   margin: 25% auto;
   
-   input {
-     width: 100%;
-     margin-bottom: 10px;
-     border: 1px solid #ccc;
-     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     padding: 4px 6px;
-     font-size: 14px;
-     line-height: 20px;
-     color: #555;
-     border-radius: 3px;
-  
-     &:focus {
-       border-color: rgba(82, 168, 236, 0.8);
-       outline: 0;
-       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-       }
-
-     }
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    padding: 4px 6px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    border-radius: 3px;
+    
+    &:focus {
+      border-color: rgba(82, 168, 236, 0.8);
+      outline: 0;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+      }
+      
+    }
   
   button {
     width: 100%;
@@ -254,119 +254,33 @@ a.main__anchor {
     }
   }
 
-label {
-  display: inline-block;
-  margin-bottom: .5rem;
-  }
-
 .main__section-slider {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
+  padding-top: 150px;
   }
 
-
-.slider-wrapper {
-  position: absolute;
-  top: 40%;
-  left: 50%;
+.slider-container {
   width: 640px;
   height: 426px;
-  box-shadow: 10px 10px 44px -10px rgba(0, 0, 0, .75);
+  background-color: #000;
+  box-shadow: 0 0 10px 0 #000;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
   }
 
-#btn-prev,
-#btn-next {
+.slider__item {
   position: absolute;
-  height: 50px;
-  width: 35px;
-  background-color: #cccccce0;
-  opacity: .2;
-  cursor: pointer;
-  transition: opacity .2s ease-in-out;
-  top: calc(50% - 25px);
-  border: none;
-  outline: none;
-  }
-
-#btn-prev:hover,
-#btn-next:hover {
-  opacity: .6;
-  }
-
-#btn-next {
-  left: auto;
-  right: 0;
-  }
-
-.slide {
-  opacity: 0;
-  position: absolute;
-  transition: all ease 1s;
-
-  img {
-    border-radius: 10px;
-    }
-  }
-
-.slide.active {
-  opacity: 1;
-  }
-
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  }
-
-.right {
-  transform: rotate(-45deg);
-  }
-
-.left {
-  transform: rotate(135deg);
-  }
-
-.dots-wrapper {
-  position: absolute;
-  width: 20%;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto 5px;
+  transition: all ease .9s;
   left: 0;
-  right: 0;
+  top: 0;
+  width: 640px;
+  height: 426px;
+  border-radius: 9px;
   }
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #cccccce0;
-  opacity: .4;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: .5s;
-  
-  &:hover {
-    transform: scale(1.3);
-    background: #cccccce0;
-    opacity: .9;
-    }
-  
-  }
-
-.dot.active {
-  opacity: .9;
-  }
-
 
 .students__form{
   width: 350px;
   padding: 15px;
   border: 4px solid #f8f9fa;
-}
+  }
