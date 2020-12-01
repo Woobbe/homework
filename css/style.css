@@ -586,7 +586,7 @@ a.main__anchor:hover {
 .table__form,
 .students__form {
   width: 200px;
-  margin: 25% auto;
+  margin: 15% auto 50px;
 }
 .table__form input,
 .students__form input {
