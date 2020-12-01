@@ -1,5 +1,4 @@
 let tableButton = document.querySelector('#table-button');
-let linkShowTable = document.querySelector('.aside__link-table');
 let sectionTable = document.querySelector('.main__section-table');
 
 function createTable() {
@@ -59,10 +58,5 @@ function createIndexTitle(rowIndex, columnIndex) {
     sectionTable.querySelector('table').before(title);
 }
 
-function showTableGenerator() {
-    document.querySelector('.main__wrapper').classList.toggle('hide');
-    document.querySelector('.main__section-table').classList.toggle('hide');
-}
 
 tableButton.onclick = createTable;
-linkShowTable.onclick = showTableGenerator;

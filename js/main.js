@@ -1,3 +1,6 @@
+const linkShowStartPage = document.querySelector('.aside__link-start');
+const linkShowTable = document.querySelector('.aside__link-table');
+
 function showDropdownMenu() {
     document.getElementById('myDropdown').classList.toggle('show');
 }
@@ -22,3 +25,17 @@ function hideAside() {
     document.querySelector('.hamburger-menu').classList.toggle('hamburger-menu-left');
     document.querySelector('.footer').classList.toggle('footer-all-width');
 }
+
+
+function showTableGenerator() {
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-table').classList.remove('hide');
+}
+
+function showStartPage() {
+    document.querySelector('.main__wrapper').classList.remove('hide');
+    document.querySelector('.main__section-table').classList.add('hide');
+}
+
+linkShowStartPage.addEventListener('click', showStartPage);
+linkShowTable.addEventListener('click', showTableGenerator);
