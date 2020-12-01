@@ -1,16 +1,18 @@
-let tableButton = document.querySelector('#table-button');
-let linkShowTable = document.querySelector('.aside__link-table');
-let sectionTable = document.querySelector('.main__section-table');
+const tableButton = document.querySelector('#table-button');
+const linkShowTable = document.querySelector('.aside__link-table');
+const sectionTable = document.querySelector('.main__section-table');
 
 function createTable() {
-    let table = document.createElement('table');
-    let rows = document.querySelector('#rows').value;
-    let columns = document.querySelector('#columns').value;
-    let cells = '<td></td>'.repeat(columns);
-    let rowsCollection = table.getElementsByTagName('tr');
-    let oldTable = sectionTable.querySelector('table');
+    const table = document.createElement('table');
+    const rows = document.querySelector('#rows').value;
+    const columns = document.querySelector('#columns').value;
+    const cells = '<td></td>'.repeat(columns);
+    const rowsCollection = table.getElementsByTagName('tr');
+    const oldTable = sectionTable.querySelector('table');
 
-    if (oldTable !== null) oldTable.remove();
+    if (oldTable !== null) {
+        oldTable.remove();
+    }
 
     table.className = 'generate-table';
     table.innerHTML = '<tr></tr>'.repeat(rows);
@@ -20,21 +22,31 @@ function createTable() {
     }
 
     sectionTable.appendChild(table);
-    cellsShowIndex();
+    cellsShowIndex(table);
 }
 
-function cellsShowIndex() {
-    let cellsCollection = sectionTable.getElementsByTagName('td');
-    let cellsArray = Array.from(cellsCollection);
-    cellsArray.forEach(cell => cell.onclick = getCellIndex);
+function cellsShowIndex(table) {
+
+    // cellsArray.forEach(cell => cell.onclick = getCellIndex.bind(cellsArray, cellsArray));
+    table.addEventListener('click', getCellIndex);
 }
 
-function getCellIndex() {
+function getCellIndex(event) {
+    const cellsArray = Array.from(sectionTable.getElementsByTagName('td'));
     let rowIndex = 1;
     let columnIndex = 1;
-    let currentColumn = this;
-    let currentRow = this.parentElement;
-    this.style.backgroundColor = 'red';
+    let currentColumn = event.target;
+    let currentRow = event.target.parentElement;
+
+    cellsArray.forEach( td => {
+        if (td.style.backgroundColor = 'red') {
+            td.style.backgroundColor = null;
+        }
+    })
+
+    if (event.target.tagName == 'TD') {
+        event.target.style.backgroundColor = 'red';
+    }
 
     while (currentRow.previousElementSibling != null) {
         currentRow = currentRow.previousElementSibling;
