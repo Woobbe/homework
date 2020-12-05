@@ -1,4 +1,6 @@
 const linkShowStartPage = document.querySelector('.aside__link-start');
+const linkShowTable = document.querySelector('.aside__link-table');
+
 function showDropdownMenu() {
     document.getElementById('myDropdown').classList.toggle('show');
 }
@@ -28,7 +30,6 @@ function showSlider() {
     document.querySelector('.main__wrapper').classList.add('hide');
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
-    document.querySelector('.main__section-slider').classList.remove('hide');
 }
 
 function showStartPage() {
@@ -38,4 +39,12 @@ function showStartPage() {
     document.querySelector('.main__section-slider').classList.add('hide');
 }
 
+function showTableGenerator() {
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-table').classList.remove('hide');
+}
+
 linkShowStartPage.addEventListener('click', showStartPage);
+linkShowTable.addEventListener('click', showTableGenerator);

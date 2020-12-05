@@ -4,9 +4,7 @@ function getCurrentTime() {
     let currentMinutes = currentData.getMinutes();
     let currentSeconds = currentData.getSeconds();
 
-    if (currentHours < 10) currentHours = '0' + currentHours;
-    if (currentMinutes < 10) currentMinutes = '0' + currentMinutes;
-    if (currentSeconds < 10) currentSeconds = '0' + currentSeconds;
+    [currentHours, currentMinutes, currentSeconds] = plusZerro(currentHours, currentMinutes, currentSeconds);
 
     return [currentHours, currentMinutes, currentSeconds];
 }
@@ -33,9 +31,9 @@ function insertCurrentTime(spanHours, spanMinutes, spanSeconds) {
 
     spanSeconds.textContent = currentSeconds;
 
-    if(currentSeconds == '00') spanMinutes.textContent = currentMinutes;
+    if (currentSeconds == '00') spanMinutes.textContent = currentMinutes;
 
-    if(currentMinutes == '00' && currentSeconds == '00') {
+    if (currentMinutes == '00' && currentSeconds == '00') {
         spanHours.textContent = currentHours;
     }
 }
