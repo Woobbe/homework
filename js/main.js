@@ -30,13 +30,14 @@ function showSlider() {
     document.querySelector('.main__wrapper').classList.add('hide');
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.remove('hide');
 }
 
 function showStartPage() {
-    document.querySelector('.main__wrapper').classList.remove('hide');
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__wrapper').classList.remove('hide');
 }
 
 function showTableGenerator() {
