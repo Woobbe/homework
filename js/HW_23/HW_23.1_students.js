@@ -194,11 +194,11 @@ students.deleteRow = function(event) {
 
 students.eventAction = function(event) {
     if (event.target.name === 'edit') {
-        students.editTableRow.call(students, event);
+        students.editTableRow(event);
         return;
     }
     if (event.target.name === 'delete') {
-        students.deleteRow.call(students, event);
+        students.deleteRow(event);
     }
 };
 
