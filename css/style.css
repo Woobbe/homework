@@ -641,7 +641,6 @@ a.main__anchor:hover {
   border-radius: 10px;
   position: relative;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .slider__item {
