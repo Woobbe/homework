@@ -3,17 +3,17 @@ const sliderBtnAside = document.querySelector('.aside__link-slider');
 class Slider {
     constructor() {
         this.index = 0;
-        this.interval = 500;
+        this.interval = 2000;
         this.selectorWrapper = '.slider-container';
         this.offset = 0;
         this.sliderWrapper = document.querySelector(this.selectorWrapper);
         // TODO: offsetWidth возвращает 0!!!
-        this.sliderWrapperWidth = this.sliderWrapper.offsetWidth;
+        // this.sliderWrapperWidth = this.sliderWrapper.offsetWidth;
+        this.sliderWrapperWidth = 640;
         this.slidesList = this.getSlidesList(this.sliderWrapper);
     }
 
     startSlider() {
-        console.log(this);
         this.createSlide();
         this.offset = 1;
         this.createSlide();
@@ -32,7 +32,11 @@ class Slider {
         return slidesList;
     }
 
-    createSlide() {
+    createSlide(side = 'left') {
+        side === 'left'
+            ? this.offset = this.offset
+            : this.offset = -this.offset;
+
         const slide = document.createElement('img');
         slide.className = 'slider__item';
         slide.src = this.slidesList[this.index];
@@ -60,8 +64,6 @@ class Slider {
 }
 
 const infinitySlider = new Slider();
-
-
 
 
 sliderBtnAside.addEventListener('click', showSlider);
