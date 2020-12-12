@@ -86,6 +86,8 @@ class StudentsForm extends Form {
             'Save');
         this.buttonSave.addEventListener('click', this.stopDefaultAction);
     };
+
+
 }
 
 const students = new StudentsForm({
@@ -98,10 +100,10 @@ const students = new StudentsForm({
 students.disableButton(students.buttonSave, 'button-disabled');
 
 students.activeButtonSave = function() {
-    if (this.firstName.value.length > 2 &&
-        this.secondName.value.length > 2 &&
-        this.dateStart.value !== '' &&
-        this.dateEnd.value !== ''
+    if (this.firstName.value.length > 2 // &&
+        // this.secondName.value.length > 2 &&
+        // this.dateStart.value !== '' &&
+        // this.dateEnd.value !== ''
     ) {
         this.activeButton(this.buttonSave, 'button-disabled');
     } else {
@@ -116,15 +118,20 @@ students.createTable = function(tableClass) {
         this.table.classList.add(tableClass);
         this.formWrapper.append(this.table);
 
-        students.createTableHeader(this.form, this.table);
+        students.createTableHeader();
 
         this.table.addEventListener('click', students.eventAction.bind(students));
     }
 };
 
-students.createTableHeader = function(form, table) {
+students.createTableHeader = function() {
     const row = document.createElement('tr');
-    const labelCollection = form.querySelectorAll('label');
+    const labelCollection = this.form.querySelectorAll('label');
+    const tableHeadNumber = document.createElement('th');
+    const tableHeadAction = document.createElement('th');
+    tableHeadNumber.textContent = 'Номер';
+    tableHeadAction.textContent = 'Действие';
+    row.append(tableHeadNumber);
 
     for (let label of labelCollection) {
         let tableHead = document.createElement('th');
@@ -132,24 +139,27 @@ students.createTableHeader = function(form, table) {
         row.append(tableHead);
     }
 
-    table.append(row);
+    row.append(tableHeadAction);
+    this.table.append(row);
 };
 
 students.createTableRow = function() {
     const row = document.createElement('tr');
     const inputCollection = this.form.querySelectorAll('input');
+    const currentRowIndex = this.table.querySelectorAll('tr').length;
     const buttonEdit = document.createElement('button');
     const buttonDelete = document.createElement('button');
     const iconEdit = document.createElement('img');
     const iconDelete = document.createElement('img');
+    const tableDataIndex = document.createElement('td');
+    const tableDataButtons = document.createElement('td');
+
     iconEdit.src = 'img/icon/edit.svg';
     iconDelete.src = 'img/icon/delete.svg';
     iconEdit.setAttribute('name', 'edit');
     iconDelete.setAttribute('name', 'delete');
-
-
-    buttonEdit.append(iconEdit);
-    buttonDelete.append(iconDelete);
+    tableDataIndex.textContent = currentRowIndex;
+    row.append(tableDataIndex);
 
     for (let input of inputCollection) {
         const cell = document.createElement('td');
@@ -158,10 +168,14 @@ students.createTableRow = function() {
         cell.classList.add(`td__${inputId}`);
         cell.textContent = input.value;
         input.value = '';
-        cell.append(buttonEdit);
-        cell.append(buttonDelete);
+
         row.append(cell);
     }
+
+    buttonEdit.append(iconEdit);
+    buttonDelete.append(iconDelete);
+    tableDataButtons.append(buttonEdit, buttonDelete)
+    row.append(tableDataButtons);
 
     this.table.append(row);
     this.disableButton(students.buttonSave, 'button-disabled');
@@ -173,7 +187,7 @@ students.editTableRow = function(event) {
         row = row.parentElement;
     }
     const inputCollection = this.form.querySelectorAll('input');
-    const tdCollection = row.querySelectorAll('td');
+    const tdCollection = row.querySelectorAll('[class^="td"]');
 
     for (let i = 0; i < tdCollection.length; i++) {
         inputCollection[i].value = tdCollection[i].textContent;
@@ -181,8 +195,17 @@ students.editTableRow = function(event) {
     }
 
     row.remove();
+    students.generateIndexRow();
 };
 
+students.generateIndexRow = function() {
+    const rowCollection = this.table.querySelectorAll('tr td:first-child');
+    let index = 1;
+    for (let row of rowCollection) {
+        row.textContent = index;
+        index++;
+    }
+};
 
 students.deleteRow = function(event) {
     let row = event.target;
@@ -190,6 +213,7 @@ students.deleteRow = function(event) {
         row = row.parentElement;
     }
     row.remove();
+    students.generateIndexRow();
 };
 
 students.eventAction = function(event) {

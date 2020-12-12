@@ -586,7 +586,7 @@ a.main__anchor:hover {
 .table__form,
 .students__form {
   width: 200px;
-  margin: 15% auto 50px;
+  margin: 5% auto 50px;
 }
 .table__form input,
 .students__form input {
@@ -701,7 +701,6 @@ a.main__anchor:hover {
   border: none;
   cursor: pointer;
   outline: none;
-  display: none;
 }
 .students__table td button img {
   width: 15px;
@@ -715,9 +714,6 @@ a.main__anchor:hover {
 }
 .students__table tr:hover td {
   background: #CDF;
-}
-.students__table tr:hover button {
-  display: inline-block;
 }
 
 .footer {
