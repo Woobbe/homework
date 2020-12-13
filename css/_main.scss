@@ -255,33 +255,104 @@ a.main__anchor {
     }
   }
 
-.main__section-slider {
-  padding-top: 150px;
-  }
-
-.slider-container {
-  width: 640px;
-  height: 426px;
-  background-color: #000;
-  box-shadow: 0 0 10px 0 #000;
-  border-radius: 10px;
-  position: relative;
-  margin: 0 auto;
-  //overflow: hidden;
-  }
-
-.slider__item {
-  position: absolute;
-  transition: all ease .9s;
-  left: 0;
-  top: 0;
-  width: 640px;
-  height: 426px;
-  border-radius: 9px;
-  }
-
 .students__form{
   width: 350px;
   padding: 15px;
   border: 4px solid #f8f9fa;
   }
+//
+//.main__section-slider {
+//  padding-top: 150px;
+//  position: relative;
+//  }
+//
+//.slider-container {
+//  width: 640px;
+//  height: 426px;
+//  background-color: #000;
+//  box-shadow: 0 0 10px 0 #000;
+//  border-radius: 10px;
+//  position: relative;
+//  margin: 0 auto;
+//  display: flex;
+//  //overflow: hidden;
+//  }
+//
+//.slider__item {
+//  position: absolute;
+//  transition: all ease .9s;
+//  left: 0;
+//  top: 0;
+//  width: 640px;
+//  height: 426px;
+//  border-radius: 9px;
+//  }
+//
+//.slider__controls {
+//  position: absolute;
+//  top: 50%;
+//  left: 0;
+//  transform: translateY(-50%);
+//  width: 100%;
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  }
+//
+//#slider__button-prev,
+//#slider__button-next {
+//  cursor: pointer;
+//  background: transparent;
+//  font-size: 30px;
+//  border: none;
+//  padding: 10px;
+//  color: white;
+//  }
+//#slider__button-prev:focus,
+//#slider__button-next:focus {
+//  outline: none;
+//  }
+
+.main__section-slider {
+  margin: 0 auto;
+  width: 60%;
+  height: 400px;
+  position: relative;
+  //overflow: hidden;
+  }
+.slider-container {
+  display: flex;
+  height: 100%;
+  }
+.slider__item {
+  min-width: 100%;
+  position: relative;
+  }
+.slider__item img {
+  width: 100%;
+  height: 100%;
+  }
+.slider__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+#slider__button-prev,
+#slider__button-next {
+  cursor: pointer;
+  background: transparent;
+  font-size: 30px;
+  border: none;
+  padding: 10px;
+  color: white;
+  }
+#slider__button-prev:focus,
+#slider__button-next:focus {
+  outline: none;
+  }
+

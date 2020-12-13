@@ -14,6 +14,7 @@
   <script defer src="js/HW_17/header_clock.js"></script>
   <script defer src="js/HW_18/HW_18-footer__timer.js"></script>
   <script defer src="js/HW_23/HW_23.1_students.js"></script>
+  <script defer src="js/HW_23/HW_23.2_slider.js"></script>
 </head>
 <body>
 <header class="header">
@@ -151,7 +152,7 @@
 </aside>
 <div class="page__state">
   <main class="main">
-    <div class="main__wrapper">
+    <div class="main__wrapper hide">
       <header class="main__header">
         <div class="main__header-inner">
           <div class="main__header-group">
@@ -383,16 +384,28 @@
         <button id="table-button">Сгенерировать</button>
       </form>
     </section>
-    <section class="main__section-slider hide">
+    <section class="main__section-slider">
       <div class="slider-container">
-        <img src="img/slider/aerial-2203634_640.jpg" class="slider__item" alt="some picture">
-        <img src="img/slider/boy-3614307_640.jpg" class="slider__item" alt="some picture">
-        <img src="img/slider/columns-5747584_640.jpg" class="slider__item" alt="some picture">
-        <img src="img/slider/sea-164989_640.jpg" class="slider__item" alt="some picture">
-        <img src="img/slider/woman-591576_640.jpg" class="slider__item" alt="some picture">
+        <div class="slider__item">
+          <img src="img/slider/aerial-2203634_640.jpg" alt="some picture">
+        </div>
+        <div class="slider__item">
+          <img src="img/slider/boy-3614307_640.jpg" alt="some picture">
+        </div>
+        <div class="slider__item">
+         <img src="img/slider/columns-5747584_640.jpg" alt="some picture">
+        </div>
+        <div class="slider__item">
+          <img src="img/slider/sea-164989_640.jpg" alt="some picture">
+        </div>
+        <div class="slider__item">
+          <img src="img/slider/woman-591576_640.jpg" alt="some picture">
+        </div>
+      <div class="slider__controls">
+        <button id="slider__button-prev"></button>
+        <button id="slider__button-next"></button>
       </div>
-      <!--        <button class="slider__button-prev"></button>-->
-      <!--        <button class="slider__button-next"></button>-->
+      </div>
     </section>
     <section class="main__section-students hide">
       <div class="students__wrapper">
