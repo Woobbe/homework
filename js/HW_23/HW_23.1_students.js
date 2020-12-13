@@ -13,17 +13,21 @@ class Form {
         this.formWrapper.append(this.form);
     }
 
-    createInput(type, id, labelTextContent) {
+    createInput(type, id, placeholder, labelTextContent, errorTextContent) {
         const label = document.createElement('label');
         const input = document.createElement('input');
+        const errorText = document.createElement('p');
 
-        input.type = type;
-        input.id = id;
         label.textContent = labelTextContent;
         label.setAttribute('for', id);
+        input.type = type;
+        input.id = id;
+        input.placeholder = placeholder;
+        errorText.textContent = errorTextContent;
 
         this.form.append(label);
         this.form.append(input);
+        this.form.append(errorText);
 
         return input;
     }
@@ -60,35 +64,137 @@ class StudentsForm extends Form {
         this.firstName = super.createInput(
             'text',
             'student__first-name',
-            'Имя');
+            'Enter first name',
+            'First name',
+            'Upper and lower case Latin characters only.');
         this.secondName = super.createInput(
             'text',
             'student__second-name',
-            'Фамилия');
+            'Enter last name',
+            'Last name',
+            'Upper and lower case Latin characters only.');
         this.age = super.createInput(
             'number',
             'student__age',
-            'Возраст');
+            'Enter age',
+            'Age',
+            'Only older than 16 and younger 110 years.');
         this.course = super.createInput(
             'text',
             'student__course',
-            'Курс');
+            'Введите курс',
+            'Course',
+            'Only Latin characters, numbers and the _ sign are allowed.');
         this.dateStart = super.createInput(
             'date',
             'student__date-start',
-            'Дата начала');
+            null,
+            'Start Date',
+            'The Start Date must not be less than 01.01.1970 and greater than the End Date.');
         this.dateEnd = super.createInput(
             'date',
             'student__date-end',
-            'Дата окончания');
+            null,
+            'End Date',
+            'The end date must not be less than the Start Date or more than 01.01.2025.');
         this.buttonSave = super.createButton(
             'student__save',
             'Save');
         this.buttonSave.addEventListener('click', this.stopDefaultAction);
     };
 
+    isValidName(event) {
+        const regExp = /^[A-Z]{1}[a-z]{2,14}$/;
+        const nameValue = event.target.value;
 
-}
+        if (nameValue.length > 0 && !regExp.test(nameValue)) {
+            this.showErrorMessage(event.target);
+        } else {
+            this.hideErrorMessage(event.target);
+        }
+    };
+
+    isValidAge() {
+        const ageValue = this.age.value;
+
+        if (ageValue.length > 0
+            && (ageValue < 16
+                || ageValue > 110)
+            || ageValue.includes('e')) {
+            this.showErrorMessage(this.age);
+        } else {
+            this.hideErrorMessage(this.age);
+        }
+    };
+
+    isValidCourse() {
+        const regExp = /^[a-zA-Z0-9_]+$/;
+        const courseValue = this.course.value;
+
+        if (courseValue.length > 0 && !regExp.test(courseValue)) {
+            this.showErrorMessage(this.course);
+        } else {
+            this.hideErrorMessage(this.course);
+        }
+    };
+
+    isValidDateStart() {
+        const startDateValue = this.dateStart.value;
+        const currentDate = Date.now();
+        const startDateValueMs = Date.parse(startDateValue);
+
+        if (startDateValue !== ''
+            && (startDateValue < '1970-01-01'
+                || startDateValue > this.dateEnd.value
+                || startDateValueMs > currentDate)) {
+            this.showErrorMessage(this.dateStart);
+        } else {
+            this.hideErrorMessage(this.dateStart);
+        }
+
+    };
+
+    isValidDateEnd() {
+        const endDateValue = this.dateEnd.value;
+
+        if (endDateValue !== ''
+            && (endDateValue > '2025-01-01'
+                || endDateValue < this.dateStart.value)) {
+            this.showErrorMessage(this.dateEnd);
+        } else {
+            this.hideErrorMessage(this.dateEnd);
+        }
+    };
+
+    showErrorMessage(input) {
+        input.classList.add('input__error');
+        input.nextElementSibling.style.visibility = 'visible';
+    };
+
+    hideErrorMessage(input) {
+        input.classList.remove('input__error');
+        input.nextElementSibling.style.visibility = 'hidden';
+    };
+
+    eventCatchForm(event) {
+        switch (event.target.id) {
+            case 'student__first-name':
+            case 'student__second-name':
+                this.isValidName.call(students, event);
+                break;
+            case 'student__age':
+                this.isValidAge.call(students);
+                break;
+            case 'student__course':
+                this.isValidCourse.call(students);
+                break;
+            default:
+                this.isValidDateStart.call(students);
+                this.isValidDateEnd.call(students);
+        }
+        this.activeButtonSave(students);
+    }
+};
 
 const students = new StudentsForm({
     wrapperSelector: '.students__wrapper',
@@ -100,10 +206,23 @@ const students = new StudentsForm({
 students.disableButton(students.buttonSave, 'button-disabled');
 
 students.activeButtonSave = function() {
-    if (this.firstName.value.length > 2 // &&
-        // this.secondName.value.length > 2 &&
-        // this.dateStart.value !== '' &&
-        // this.dateEnd.value !== ''
+    const errorMessagesCollection = this.form.querySelectorAll('p');
+
+    for (let errorMessage of errorMessagesCollection) {
+        let hasError = errorMessage.style.visibility === 'visible';
+
+        if (hasError) {
+            this.disableButton(this.buttonSave, 'button-disabled');
+            return;
+        } else {
+            this.activeButton(this.buttonSave, 'button-disabled');
+        }
+    }
+
+    if (this.firstName.value.length > 1 &&
+        this.secondName.value.length > 2 &&
+        this.dateStart.value !== '' &&
+        this.dateEnd.value !== ''
     ) {
         this.activeButton(this.buttonSave, 'button-disabled');
     } else {
@@ -129,8 +248,8 @@ students.createTableHeader = function() {
     const labelCollection = this.form.querySelectorAll('label');
     const tableHeadNumber = document.createElement('th');
     const tableHeadAction = document.createElement('th');
-    tableHeadNumber.textContent = 'Номер';
-    tableHeadAction.textContent = 'Действие';
+    tableHeadNumber.textContent = 'Number';
+    tableHeadAction.textContent = 'Actions';
     row.append(tableHeadNumber);
 
     for (let label of labelCollection) {
@@ -174,7 +293,7 @@ students.createTableRow = function() {
 
     buttonEdit.append(iconEdit);
     buttonDelete.append(iconDelete);
-    tableDataButtons.append(buttonEdit, buttonDelete)
+    tableDataButtons.append(buttonEdit, buttonDelete);
     row.append(tableDataButtons);
 
     this.table.append(row);
@@ -226,9 +345,9 @@ students.eventAction = function(event) {
     }
 };
 
-students.form.addEventListener('input', students.activeButtonSave.bind(students));
-students.buttonSave.addEventListener(
-    'click',
+
+students.buttonSave.addEventListener('click',
     students.createTable.bind(students, 'students__table'),
     {once: true});
 students.buttonSave.addEventListener('click', students.createTableRow.bind(students));
+students.form.addEventListener('input', students.eventCatchForm.bind(students));
