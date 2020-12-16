@@ -11,14 +11,14 @@ class Slider {
         this.lastSlideClone = this.slidesList[this.slidesList.length - 1].cloneNode(true);
         this.firstSlideClone.id = 'first-clone';
         this.lastSlideClone.id = 'last-clone';
-        this.sliderWrapperWidth = this.sliderWrapper.offsetWidth;
+        this.sliderWrapperWidth = this.slidesWrapper.offsetWidth;
         this.defaultTransition = transition;
 
         console.log(this.sliderWrapperWidth);
 
-        this.sliderWrapper.prepend(this.lastSlideClone);
-        this.sliderWrapper.append(this.firstSlideClone);
-        this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
+        this.slidesWrapper.prepend(this.lastSlideClone);
+        this.slidesWrapper.append(this.firstSlideClone);
+        this.slidesWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
     }
 
     startSlider() {
@@ -27,17 +27,17 @@ class Slider {
 
     checkSlideIndex() {
         if (this.slidesList[this.index].id === this.firstSlideClone.id) {
-            this.sliderWrapper.style.transition = 'none';
+            this.slidesWrapper.style.transition = 'none';
             this.index = 0;
-            this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index})px`;
+            this.slidesWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index})px`;
             // return;
             console.log(1);
         }
 
         if (this.slidesList[this.index].id === this.lastSlideClone.id) {
-            this.sliderWrapper.style.transition = 'none';
+            this.slidesWrapper.style.transition = 'none';
             this.index = this.slidesList.length - 2;
-            this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index})px`;
+            this.slidesWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index})px`;
             console.log(2);
         }
     };
@@ -46,8 +46,8 @@ class Slider {
         if (this.index >= this.slidesList.length - 1) return;
 
         this.index++;
-        this.sliderWrapper.style.transition = this.defaultTransition;
-        this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
+        this.slidesWrapper.style.transition = this.defaultTransition;
+        this.slidesWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
         console.log(`Index: ${this.index}`);
         console.log(`sliderWrapperWidth: ${this.sliderWrapperWidth}`);
     };
@@ -55,8 +55,8 @@ class Slider {
     moveToPreviousSlide() {
         if (this.index <= 0) return;
         this.index--;
-        this.sliderWrapper.style.transition = this.defaultTransition;
-        this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
+        this.slidesWrapper.style.transition = this.defaultTransition;
+        this.slidesWrapper.style.transform = `translateX(${-this.sliderWrapperWidth * this.index}px)`;
     }
 
 }
@@ -67,7 +67,7 @@ const newSlider = new Slider('.slider-container', '.7s ease-out');
 // newSlider.sliderWrapper.addEventListener('mouseleave', newSlider.startSlider.bind(newSlider));
 newSlider.btnNext.addEventListener('click', newSlider.moveToNextSlide.bind(newSlider));
 newSlider.btnPrev.addEventListener('click', newSlider.moveToPreviousSlide.bind(newSlider));
-newSlider.sliderWrapper.addEventListener('transitionend', newSlider.checkSlideIndex.bind(newSlider));
+newSlider.slidesWrapper.addEventListener('transitionend', newSlider.checkSlideIndex.bind(newSlider));
 
 newSlider.startSlider();
 
