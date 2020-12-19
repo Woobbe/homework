@@ -13,7 +13,7 @@ class Form {
         this.formWrapper.append(this.form);
     }
 
-    createInput(type, id, placeholder, labelTextContent, errorTextContent) {
+    createInput(type, id, placeholder, labelTextContent, errorTextContent, minDate, maxDate) {
         const label = document.createElement('label');
         const input = document.createElement('input');
         const errorText = document.createElement('p');
@@ -24,6 +24,11 @@ class Form {
         input.id = id;
         input.placeholder = placeholder;
         errorText.textContent = errorTextContent;
+
+        if (type === 'date') {
+            input.min = minDate;
+            input.max = maxDate;
+        }
 
         this.form.append(label);
         this.form.append(input);
@@ -66,13 +71,13 @@ class StudentsForm extends Form {
             'student__first-name',
             'Enter first name',
             'First name',
-            'Upper and lower case Latin characters only.');
+            'Consists of the first capital letter, small Latin letters, a space, and a dash.');
         this.secondName = super.createInput(
             'text',
             'student__second-name',
             'Enter last name',
             'Last name',
-            'Upper and lower case Latin characters only.');
+            'Consists of the first capital letter, small Latin letters, a space, and a dash.');
         this.age = super.createInput(
             'number',
             'student__age',
@@ -90,13 +95,17 @@ class StudentsForm extends Form {
             'student__date-start',
             null,
             'Start Date',
-            'The Start Date must not be less than 01.01.1970 and greater than the End Date.');
+            'The Start Date must not be less than 01.01.1970 and greater than the End Date.',
+            '1970-01-01',
+            '2025-01-01');
         this.dateEnd = super.createInput(
             'date',
             'student__date-end',
             null,
             'End Date',
-            'The end date must not be less than the Start Date or more than 01.01.2025.');
+            'The end date must not be less than the Start Date or more than 01.01.2025.',
+            '1970-01-01',
+            '2025-01-01');
         this.buttonSave = super.createButton(
             'student__save',
             'Save');
@@ -104,7 +113,7 @@ class StudentsForm extends Form {
     };
 
     isValidName(event) {
-        const regExp = /^[A-Z]{1}[a-z]{2,14}$/;
+        const regExp = /^[A-Z]{1}[a-zA-Z\- ]{1,14}$/;
         const nameValue = event.target.value;
 
         if (nameValue.length > 0 && !regExp.test(nameValue)) {
@@ -144,6 +153,7 @@ class StudentsForm extends Form {
         const startDateValueMs = Date.parse(startDateValue);
 
         if (startDateValue !== ''
+            && this.dateEnd.value !== ''
             && (startDateValue < '1970-01-01'
                 || startDateValue > this.dateEnd.value
                 || startDateValueMs > currentDate)) {
@@ -158,6 +168,7 @@ class StudentsForm extends Form {
         const endDateValue = this.dateEnd.value;
 
         if (endDateValue !== ''
+            && this.dateStart.value !== ''
             && (endDateValue > '2025-01-01'
                 || endDateValue < this.dateStart.value)) {
             this.showErrorMessage(this.dateEnd);
@@ -194,6 +205,16 @@ class StudentsForm extends Form {
         }
         this.activeButtonSave(students);
     }
+
+    revertDate(input) {
+        const inputDate = new Date(input.valueAsDate);
+        let date = inputDate.getDate();
+        let month = inputDate.getMonth() + 1;
+        let year = inputDate.getFullYear();
+        [date, month, year] = plusZerro(date, month, year);
+
+        return `${date}-${month}-${year}`;
+    }
 };
 
 const students = new StudentsForm({
@@ -220,7 +241,7 @@ students.activeButtonSave = function() {
     }
 
     if (this.firstName.value.length > 1 &&
-        this.secondName.value.length > 2 &&
+        this.secondName.value.length > 1 &&
         this.dateStart.value !== '' &&
         this.dateEnd.value !== ''
     ) {
@@ -285,6 +306,14 @@ students.createTableRow = function() {
         const index = input.id.indexOf('_') + 2;
         const inputId = input.id.slice(index);
         cell.classList.add(`td__${inputId}`);
+
+        if (input.type === 'date') {
+            cell.textContent = this.revertDate(input);
+            input.value = '';
+            row.append(cell);
+            continue;
+        }
+
         cell.textContent = input.value;
         input.value = '';
 
@@ -309,6 +338,13 @@ students.editTableRow = function(event) {
     const tdCollection = row.querySelectorAll('[class^="td"]');
 
     for (let i = 0; i < tdCollection.length; i++) {
+        if (inputCollection[i].type === 'date') {
+            const dateArray = tdCollection[i].textContent.split('-');
+            inputCollection[i].value = `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`;
+            tdCollection[i].textContent = '';
+            continue;
+        }
+
         inputCollection[i].value = tdCollection[i].textContent;
         tdCollection[i].textContent = '';
     }
