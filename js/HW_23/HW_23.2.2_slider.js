@@ -2,9 +2,9 @@ class Slider {
     constructor(options) {
         this.sliderWrapper = document.querySelector(options.sliderSelector);
         this.slidesWrapper = this.sliderWrapper.querySelector('div');
-        this.slidesList = document.getElementsByClassName(options.slidesClassName);
-        this.buttonNext = document.querySelector('#next-btn');
-        this.buttonPrev = document.querySelector('#prev-btn');
+        this.slidesList = this.sliderWrapper.getElementsByClassName(options.slidesClassName);
+        this.buttonNext = this.sliderWrapper.querySelector('#next-btn');
+        this.buttonPrev = this.sliderWrapper.querySelector('#prev-btn');
         this.sliderWidth = this.slidesWrapper.offsetWidth;
         this.firstClone = this.slidesList[0].cloneNode(true);
         this.lastClone = this.slidesList[this.slidesList.length - 1].cloneNode(true);
@@ -15,14 +15,13 @@ class Slider {
         this.sliderTransition = options.sliderTransition;
         this.slidesWrapper.style.transform = `translateX(${-this.sliderWidth * this.index}px)`;
         this.dotsWrapperSelector = options.dotsWrapperSelector;
-        this.mouse = options.mouseMove && this.eventMouse();
-        this.button = options.buttons && this.activeButtons();
+        this.mouse = options.mouseStop && this.eventMouseStop();
+        this.arrow = options.arrows && this.activeButtons();
         this.dots = options.dots && this.createDots();
+        this.title = options.title && this.eventMouseTitle();
 
         this.slidesWrapper.append(this.firstClone);
         this.slidesWrapper.prepend(this.lastClone);
-
-
     }
 
     startSlide = () => {
@@ -87,17 +86,6 @@ class Slider {
         this.dotsList[currentIndex].classList.add('active-dot');
     };
 
-    eventMouse = () => {
-        this.sliderWrapper.addEventListener('mouseenter', this.stopSlide);
-        this.sliderWrapper.addEventListener('mouseleave', this.startSlide);
-    };
-
-    activeButtons = () => {
-        this.buttonNext.addEventListener('click', this.moveToNextSlide);
-        this.buttonPrev.addEventListener('click', this.moveToPreviousSlide);
-
-    };
-
     createDots = () => {
         this.dotsList = [];
         this.dotsWrapper = document.createElement('div');
@@ -123,23 +111,54 @@ class Slider {
         });
     };
 
+    createTitle = (event) => {
+        event.target.removeEventListener('mouseenter', this.createTitle);
+        const titleBlock = document.createElement('p');
+        titleBlock.textContent = event.target.dataset.title;
+        event.target.append(titleBlock);
+    };
+
+    eventMouseStop = () => {
+        this.sliderWrapper.addEventListener('mouseenter', this.stopSlide);
+        this.sliderWrapper.addEventListener('mouseleave', this.startSlide);
+    };
+
+    eventMouseTitle = () => {
+        Array.from(this.slidesList).forEach(slide => {
+            slide.addEventListener('mouseenter', this.createTitle);
+        });
+    };
+
+    activeButtons = () => {
+        this.buttonNext.addEventListener('click', this.moveToNextSlide);
+        this.buttonPrev.addEventListener('click', this.moveToPreviousSlide);
+    };
 
 }
 
 
-const newSlider = new Slider({
-    sliderSelector: '.slider__wrapper',
+const sliderArrowsStop = new Slider({
+    sliderSelector: '.slider__wrapper-arrows-stop',
+    slidesClassName: 'slide',
+    interval: 2000,
+    sliderTransition: '.9s ease-out',
+    mouseStop: true,
+    arrows: true
+});
+
+const sliderDotsTitle = new Slider({
+    sliderSelector: '.slider__wrapper-second-dots-title',
     slidesClassName: 'slide',
     dotsWrapperSelector: 'slider__wrapper-dots',
-    interval: 5000,
+    interval: 6000,
     sliderTransition: '.9s ease-out',
-    mouseMove: true,
-    buttons: true,
-    dots: true
+    dots: true,
+    title: true
 });
 
 
-newSlider.startSlide.call(newSlider);
+sliderArrowsStop.startSlide.call(sliderArrowsStop);
+sliderDotsTitle.startSlide.call(sliderDotsTitle);
 
 
 // Оказывается, если писать через стрелочные функции, то не нужно на каждом шагу использовать bind()

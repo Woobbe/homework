@@ -635,7 +635,9 @@ a.main__anchor:hover {
   border: 4px solid #f8f9fa;
 }
 
-.slider__wrapper {
+.slider__wrapper,
+.slider__wrapper-arrows-stop,
+.slider__wrapper-second-dots-title {
   margin: 0 auto;
   width: 60%;
   height: 400px;
@@ -651,6 +653,22 @@ a.main__anchor:hover {
 .slide {
   min-width: 100%;
   position: relative;
+}
+.slide:hover p {
+  bottom: 0;
+}
+.slide p {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  bottom: -50px;
+  text-align: center;
+  transition: 3s;
+  background-color: #000;
+  opacity: 0.6;
 }
 
 .slide img {
@@ -728,6 +746,10 @@ a.main__anchor:hover {
 
 #prev-btn {
   transform: rotate(135deg);
+}
+
+.slider__wrapper-second-dots-title {
+  margin-top: 15px;
 }
 
 .footer {
