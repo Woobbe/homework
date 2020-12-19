@@ -1,5 +1,7 @@
 const linkShowStartPage = document.querySelector('.aside__link-start');
 const linkShowTable = document.querySelector('.aside__link-table');
+const sliderBtnAside = document.querySelector('.aside__link-slider');
+const buttonShowStudents = document.querySelector('.aside__link-students');
 
 function showDropdownMenu() {
     document.getElementById('myDropdown').classList.toggle('show');
@@ -47,5 +49,15 @@ function showTableGenerator() {
     document.querySelector('.main__section-table').classList.remove('hide');
 }
 
+function showStudents() {
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-table').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-students').classList.remove('hide');
+}
+
+
 linkShowStartPage.addEventListener('click', showStartPage);
 linkShowTable.addEventListener('click', showTableGenerator);
+sliderBtnAside.addEventListener('click', showSlider);
+buttonShowStudents.addEventListener('click', showStudents);

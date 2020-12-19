@@ -22,14 +22,16 @@ class Slider {
 
         this.slidesWrapper.append(this.firstClone);
         this.slidesWrapper.prepend(this.lastClone);
+
+        this.startSlider();
     }
 
-    startSlide = () => {
+    startSlider = () => {
         this.slideId = setInterval(this.moveToNextSlide, this.interval);
         this.slidesWrapper.addEventListener('transitionend', this.changeIndex);
     };
 
-    stopSlide = () => {
+    stopSlider = () => {
         clearInterval(this.slideId);
     };
 
@@ -119,8 +121,8 @@ class Slider {
     };
 
     eventMouseStop = () => {
-        this.sliderWrapper.addEventListener('mouseenter', this.stopSlide);
-        this.sliderWrapper.addEventListener('mouseleave', this.startSlide);
+        this.sliderWrapper.addEventListener('mouseenter', this.stopSlider);
+        this.sliderWrapper.addEventListener('mouseleave', this.startSlider);
     };
 
     eventMouseTitle = () => {
@@ -133,10 +135,9 @@ class Slider {
         this.buttonNext.addEventListener('click', this.moveToNextSlide);
         this.buttonPrev.addEventListener('click', this.moveToPreviousSlide);
     };
-
 }
 
-
+function initSlider() {
 const sliderArrowsStop = new Slider({
     sliderSelector: '.slider__wrapper-arrows-stop',
     slidesClassName: 'slide',
@@ -155,10 +156,6 @@ const sliderDotsTitle = new Slider({
     dots: true,
     title: true
 });
+}
 
-
-sliderArrowsStop.startSlide.call(sliderArrowsStop);
-sliderDotsTitle.startSlide.call(sliderDotsTitle);
-
-
-// Оказывается, если писать через стрелочные функции, то не нужно на каждом шагу использовать bind()
+sliderBtnAside.addEventListener('click', initSlider, {once: true});
