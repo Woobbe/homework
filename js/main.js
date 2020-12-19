@@ -2,6 +2,7 @@ const linkShowStartPage = document.querySelector('.aside__link-start');
 const linkShowTable = document.querySelector('.aside__link-table');
 const sliderBtnAside = document.querySelector('.aside__link-slider');
 const buttonShowStudents = document.querySelector('.aside__link-students');
+const linkShowButtons = document.querySelector('.aside__link-buttons');
 
 function showDropdownMenu() {
     document.getElementById('myDropdown').classList.toggle('show');
@@ -32,6 +33,7 @@ function showSlider() {
     document.querySelector('.main__wrapper').classList.add('hide');
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-slider').classList.remove('hide');
 }
 
@@ -39,6 +41,7 @@ function showStartPage() {
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__wrapper').classList.remove('hide');
 }
 
@@ -46,6 +49,7 @@ function showTableGenerator() {
     document.querySelector('.main__wrapper').classList.add('hide');
     document.querySelector('.main__section-slider').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-table').classList.remove('hide');
 }
 
@@ -53,7 +57,16 @@ function showStudents() {
     document.querySelector('.main__wrapper').classList.add('hide');
     document.querySelector('.main__section-table').classList.add('hide');
     document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-students').classList.remove('hide');
+}
+
+function showButtons() {
+    document.querySelector('.main__wrapper').classList.add('hide');
+    document.querySelector('.main__section-table').classList.add('hide');
+    document.querySelector('.main__section-slider').classList.add('hide');
+    document.querySelector('.main__section-students').classList.add('hide');
+    document.querySelector('.main__section-buttons').classList.remove('hide');
 }
 
 
@@ -61,3 +74,4 @@ linkShowStartPage.addEventListener('click', showStartPage);
 linkShowTable.addEventListener('click', showTableGenerator);
 sliderBtnAside.addEventListener('click', showSlider);
 buttonShowStudents.addEventListener('click', showStudents);
+linkShowButtons.addEventListener('click', showButtons);

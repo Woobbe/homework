@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Введение в JavaScript</title>
+  <title>JavaScript</title>
   <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="css/style.css" rel="stylesheet">
   <script defer src="js/main.js"></script>
@@ -13,6 +13,7 @@
   <script defer src="js/footer__timer.js"></script>
   <script defer src="js/students.js"></script>
   <script defer src="js/slider.js"></script>
+  <script defer src="js/buttons.js"></script>
 </head>
 <body>
 <header class="header">
@@ -98,16 +99,16 @@
       <nav class="aside__navigation">
         <ul class="aside__navigation__links">
           <li class="aside__navigation-link">
-            <a class="aside__link aside__link-table" href="#">Таблица</a>
+            <a class="aside__link aside__link-table" href="#">Table</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link aside__link-slider" href="#">Бесконечный слайдер</a>
+            <a class="aside__link aside__link-slider" href="#">Slider</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link aside__link-students" href="#">Студенты</a>
+            <a class="aside__link aside__link-students" href="#">Students</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#chto-delaet-javascript-osobennym">Что делает JavaScript особенным?</a>
+            <a class="aside__link aside__link-buttons" href="#">Buttons</a>
           </li>
           <li class="aside__navigation-link">
             <a class="aside__link" href="#yazyki-nad-javascript">Языки «над» JavaScript</a>
@@ -439,6 +440,13 @@
           <input type="date" name="date-end" id="student__date-end">
           <button id="student__save">Save</button>
         </form>
+      </div>
+    </section>
+    <section class="main__section-buttons hide">
+      <div class="buttons__wrapper">
+        <input value="Red button" type="button" name="red" />
+        <input value="Yellow button" type="button" name="yellow" />
+        <input value="Green button" type="button" name="green" />
       </div>
     </section>
   </main>

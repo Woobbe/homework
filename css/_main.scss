@@ -376,3 +376,22 @@ a.main__anchor {
 .slider__wrapper-second-dots-title {
   margin-top: 15px;
   }
+
+.buttons__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 350px;
+  margin: 30% auto;
+  }
+.red {
+  background: red;
+  color: #3B86C4;
+  }
+.yellow {
+  background: yellow;
+  color: #3B86C4;
+  }
+.green {
+  background: green;
+  color: #ff0000;
+  }

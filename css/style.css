@@ -752,6 +752,28 @@ a.main__anchor:hover {
   margin-top: 15px;
 }
 
+.buttons__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 350px;
+  margin: 30% auto;
+}
+
+.red {
+  background: red;
+  color: #3B86C4;
+}
+
+.yellow {
+  background: yellow;
+  color: #3B86C4;
+}
+
+.green {
+  background: green;
+  color: #ff0000;
+}
+
 .footer {
   align-items: center;
   background: #FBFAFA;
@@ -799,6 +821,7 @@ a.main__anchor:hover {
   border: 1px solid #3B86C4;
   padding: 5px 10px;
   background: lawngreen;
+  cursor: no-drop;
 }
 #footer__timer:hover {
   background: red;
