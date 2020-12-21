@@ -36,12 +36,12 @@ function getCellIndex(event) {
     let currentRow = event.target.parentElement;
 
     cellsArray.forEach( td => {
-        if (td.style.backgroundColor = 'red') {
+        if (td.style.backgroundColor === 'red') {
             td.style.backgroundColor = null;
         }
     })
 
-    if (event.target.tagName == 'TD') {
+    if (event.target.tagName === 'TD') {
         event.target.style.backgroundColor = 'red';
     }
 

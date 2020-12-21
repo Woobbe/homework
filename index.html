@@ -14,6 +14,7 @@
   <script defer src="js/students.js"></script>
   <script defer src="js/slider.js"></script>
   <script defer src="js/buttons.js"></script>
+  <script defer src="js/promise.js"></script>
 </head>
 <body>
 <header class="header">
@@ -111,7 +112,7 @@
             <a class="aside__link aside__link-buttons" href="#">Buttons</a>
           </li>
           <li class="aside__navigation-link">
-            <a class="aside__link" href="#yazyki-nad-javascript">Языки «над» JavaScript</a>
+            <a class="aside__link aside__link-promise" href="#t">Promise</a>
           </li>
           <li class="aside__navigation-link">
             <a class="aside__link" href="#itogo">Итого</a>
@@ -151,7 +152,7 @@
 </aside>
 <div class="page__state">
   <main class="main">
-    <div class="main__wrapper">
+    <div class="main__wrapper hide">
       <header class="main__header">
         <div class="main__header-inner">
           <div class="main__header-group">
@@ -431,6 +432,40 @@
         <input value="Red button" type="button" name="red" />
         <input value="Yellow button" type="button" name="yellow" />
         <input value="Green button" type="button" name="green" />
+      </div>
+    </section>
+    <section class="main__section-promise">
+      <div id="promise__progress-bar-wrapper">
+        <div id="promise__progress-bar"></div>
+      </div>
+      <div class="section-promise__wrapper">
+        <div class="section-promise__wrapper-controls">
+          <button id="promise-one" class="button-disabled" disabled>One</button>
+          <button id="promise-all" class="button-disabled" disabled>All</button>
+        </div>
+        <div class="section-promise__wrapper-content">
+          <article class="section-promise__wrapper-content__items">
+            <img src="img/fur_seal.jpg" alt="Fur seal">
+            <div class="section-promise__wrapper-content__description">
+              <h1>Fur seal</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur consequatur cumque cupiditate deleniti et fuga illo inventore, magnam magni nihil nobis odit officiis perferendis quaerat reiciendis sequi, sit tempore.</p>
+            </div>
+          </article>
+          <article class="section-promise__wrapper-content__items">
+            <img src="img/fur_seal.jpg" alt="Fur seal">
+            <div class="section-promise__wrapper-content__description">
+              <h1>Fur seal</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque aut deserunt eligendi esse est fugit necessitatibus perspiciatis porro quibusdam rem temporibus, voluptatibus. Dolor eum harum nisi officiis possimus tenetur!</p>
+            </div>
+          </article>
+          <article class="section-promise__wrapper-content__items">
+            <img src="img/fur_seal.jpg" alt="Fur seal">
+            <div class="section-promise__wrapper-content__description">
+              <h1>Fur seal</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque culpa dignissimos est harum nobis quasi qui! Atque consequatur culpa deleniti excepturi expedita saepe sapiente suscipit veritatis. Cum, pariatur.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>

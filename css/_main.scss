@@ -479,3 +479,125 @@ a.main__anchor {
     border-color: rgba(255, 0, 0, 0.8);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
   }
+
+
+
+.main__section-promise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+
+#promise__progress-bar-wrapper {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  }
+
+#promise__progress-bar {
+  background-color: rgba(82, 236, 87, 0.8);
+  height: 20px;
+  transition: width 1s linear;
+  width: 100%;
+  }
+
+#promise__progress-bar.zero {
+  width: 0;
+  }
+
+
+.section-promise__wrapper {
+  width: 600px;
+  margin: 0 auto;
+  }
+
+.section-promise__wrapper-controls {
+  display: flex;
+  justify-content: space-around;
+  
+    button {
+      width: 100px;
+      margin: 20px 0;
+      background-color: rgba(82, 236, 87, 0.8);
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      outline: none;
+      position: relative;
+      cursor: pointer;
+    
+      &:hover {
+        background-color: #fff;
+        color: rgb(73, 210, 78);
+        animation: pulse 1s infinite;
+        }
+    
+      &:active {
+        top: 1px;
+        background-color: #F6F6F6;
+        }
+  
+      &.button-disabled {
+        background-color: #777;
+    
+        &:hover {
+          background-color: #777;
+          color: #000;
+          animation: none;
+          cursor: default;
+          }
+    
+        &:active {
+          top: 0;
+          background-color: #777;
+          }
+        }
+      }
+  }
+
+.section-promise__wrapper-content {
+  display: flex;
+  flex-direction: column;
+  }
+
+.section-promise__wrapper-content__items {
+  width: 100%;
+  display: flex;
+  border: 1px solid #ccc;
+  margin: 5px;
+  transition: 1s;
+  padding: 5px;
+  
+  img {
+    width: 100px;
+    margin-right: 10px;
+    }
+    
+  img,
+  h1,
+  p {
+    transition: 1s;
+ }
+ img.promise-hide {
+   width: 0;
+   }
+ h1.promise-hide,
+ p.promise-hide {
+  font-size: 0;
+  }
+}
+
+article.promise-hide {
+   height: 0;
+   width: 0;
+   margin: 0;
+   padding: 0;
+   //border: 0;
+   opacity: 0;
+ }
+
+
+
+
