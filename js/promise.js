@@ -1,5 +1,3 @@
-const linkAsidePromise = document.querySelector('.aside__link-promise');
-
 const promiseContentWrapper = document.querySelector('.section-promise__wrapper-content');
 const progressBar = document.querySelector('#promise__progress-bar');
 const buttonOne = document.querySelector('#promise-one');
@@ -51,7 +49,6 @@ const hideAllPromise = new Promise(function(resolve, reject) {
     });
     resolve();
 });
-
 
 function hideBlocksAll() {
     for (let i = 0; i < blocksList.length; i++) {
@@ -123,6 +120,4 @@ function hideBlocksOneByOne(i) {
     });
 }
 
-
 linkAsidePromise.addEventListener('click', setZeroProgressBar);
-
