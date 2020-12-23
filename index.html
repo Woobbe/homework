@@ -15,6 +15,11 @@
   <script defer src="js/slider.js"></script>
   <script defer src="js/buttons.js"></script>
   <script defer src="js/promise.js"></script>
+  <script defer src="js/map.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrb-Pc-wjrho-CP3USF8mqFwA-0Hs1Y5E&callback=initMap&libraries=&v=weekly">
+  </script>
 </head>
 <body>
 <header class="header">
@@ -434,7 +439,7 @@
         <input value="Green button" type="button" name="green" />
       </div>
     </section>
-    <section class="main__section-promise">
+    <section class="main__section-promise hide">
       <div id="promise__progress-bar-wrapper">
         <div id="promise__progress-bar"></div>
       </div>
@@ -467,6 +472,9 @@
           </article>
         </div>
       </div>
+    </section>
+    <section class="main__section_map">
+      <div id="map"></div>
     </section>
   </main>
 </div>

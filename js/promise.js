@@ -1,11 +1,44 @@
-const promiseContentWrapper = document.querySelector('.section-promise__wrapper-content');
-const progressBar = document.querySelector('#promise__progress-bar');
-const buttonOne = document.querySelector('#promise-one');
-const buttonAll = document.querySelector('#promise-all');
-const blocksList = promiseContentWrapper.getElementsByClassName('section-promise__wrapper-content__items');
-const imagesList = promiseContentWrapper.getElementsByTagName('img');
-const titlesList = promiseContentWrapper.getElementsByTagName('h1');
-const descriptionsList = promiseContentWrapper.getElementsByTagName('p');
+let promiseContentWrapper;
+let progressBar;
+let buttonOne;
+let buttonAll;
+let hideOnePromise;
+let hideAllPromise;
+let blocksList;
+let imagesList;
+let titlesList;
+let descriptionsList;
+
+function initPromise() {
+    promiseContentWrapper = document.querySelector('.section-promise__wrapper-content');
+    progressBar = document.querySelector('#promise__progress-bar');
+    buttonOne = document.querySelector('#promise-one');
+    buttonAll = document.querySelector('#promise-all');
+    blocksList = promiseContentWrapper.getElementsByClassName('section-promise__wrapper-content__items');
+    imagesList = promiseContentWrapper.getElementsByTagName('img');
+    titlesList = promiseContentWrapper.getElementsByTagName('h1');
+    descriptionsList = promiseContentWrapper.getElementsByTagName('p');
+
+    hideOnePromise = new Promise(function(resolve, reject) {
+        buttonOne.addEventListener('click', () => {
+            deactivateButtons();
+            setFullProgressBar();
+            progressBar.addEventListener('transitionend', hideBlocksOneByOne.bind(null, 0), {once: true});
+            resolve();
+        });
+    });
+
+    hideAllPromise = new Promise(function(resolve, reject) {
+        buttonAll.addEventListener('click', () => {
+            deactivateButtons();
+            setFullProgressBar();
+            progressBar.addEventListener('transitionend', hideBlocksAll, {once: true});
+            resolve();
+        });
+    });
+
+    setTimeout(setZeroProgressBar, 0);
+}
 
 const setZeroProgressBar = () => {
     progressBar.classList.add('zero');
@@ -41,15 +74,6 @@ const returnAllBlocks = () => {
     setZeroProgressBar();
 };
 
-const hideAllPromise = new Promise(function(resolve, reject) {
-    buttonAll.addEventListener('click', () => {
-        deactivateButtons();
-        setFullProgressBar();
-        progressBar.addEventListener('transitionend', hideBlocksAll, {once: true});
-    });
-    resolve();
-});
-
 function hideBlocksAll() {
     for (let i = 0; i < blocksList.length; i++) {
         hideAllPromise.then(() => {
@@ -78,15 +102,6 @@ function hideBlocksAll() {
         });
     }
 }
-
-const hideOnePromise = new Promise(function(resolve, reject) {
-    buttonOne.addEventListener('click', () => {
-        deactivateButtons();
-        setFullProgressBar();
-        progressBar.addEventListener('transitionend', hideBlocksOneByOne.bind(null, 0), {once: true});
-    });
-    resolve();
-});
 
 function hideBlocksOneByOne(i) {
     hideOnePromise.then(() => {
@@ -120,4 +135,4 @@ function hideBlocksOneByOne(i) {
     });
 }
 
-linkAsidePromise.addEventListener('click', setZeroProgressBar);
+linkAsidePromise.addEventListener('click', initPromise);

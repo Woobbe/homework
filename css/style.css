@@ -1179,4 +1179,8 @@ article.promise-hide {
   border-top: 1px solid #dddddd;
 }
 
+#map {
+  height: 800px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -36,6 +36,7 @@ function showSlider() {
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-promise').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__section-slider').classList.remove('hide');
 }
 
@@ -45,6 +46,7 @@ function showStartPage() {
     document.querySelector('.main__section-slider').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-promise').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__wrapper').classList.remove('hide');
 }
 
@@ -54,6 +56,7 @@ function showTableGenerator() {
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-promise').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__section-table').classList.remove('hide');
 }
 
@@ -63,6 +66,7 @@ function showStudents() {
     document.querySelector('.main__section-slider').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.add('hide');
     document.querySelector('.main__section-promise').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__section-students').classList.remove('hide');
 }
 
@@ -72,6 +76,7 @@ function showButtons() {
     document.querySelector('.main__section-slider').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-promise').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.remove('hide');
 }
 
@@ -81,6 +86,7 @@ function showPromise() {
     document.querySelector('.main__section-slider').classList.add('hide');
     document.querySelector('.main__section-students').classList.add('hide');
     document.querySelector('.main__section-buttons').classList.add('hide');
+    document.querySelector('.main__section_map').classList.add('hide');
     document.querySelector('.main__section-promise').classList.remove('hide');
 }
 
