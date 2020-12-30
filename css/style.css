@@ -274,6 +274,10 @@ body {
   display: block;
 }
 
+#header__weather {
+  width: 200px;
+}
+
 .aside {
   background: #F5F2F0;
   border-right: 1px solid #D5D2D0;
