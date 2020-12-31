@@ -17,9 +17,11 @@
   <script defer src="js/promise.js"></script>
   <script defer src="js/map.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
   <script defer
-          src="https://maps.googleapis.com/maps/api/js?key=*********************************&callback=initMap&libraries=&v=weekly">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAwpO-3Zuya2UmyN84wiQzfZtxTgTMBIM&libraries=places&callback=initMap">
   </script>
+  <script defer src="js/weather.js"></script>
 </head>
 <body>
 <header class="header">
@@ -40,46 +42,7 @@
     </picture>
   </div>
   <nav class="header__nav">
-    <ul>
-      <li class="nav__item"><a href="#">Учебник</a></li>
-      <li class="nav__item"><a href="#">Курсы</a></li>
-      <li class="nav__item"><a href="#">Форум</a></li>
-      <li class="nav__item"><a href="#">ES5</a></li>
-      <li class="nav__item"><a href="#">Тесты знаний</a></li>
-      <li class="nav__item">
-        <div class="dropdown">
-          <button class="dropbtn" onclick="showDropdownMenu()">Скринкасты</button>
-          <div class="dropdown-content" id="myDropdown">
-            <ul class="sitetoolbar__dropdown-items">
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">Node.js</a>
-              </li>
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">Webpack</a>
-              </li>
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">Gulp 4</a>
-              </li>
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">React.js</a>
-              </li>
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">Angular</a>
-              </li>
-              <li class="sitetoolbar__dropdown-item">
-                <a class="sitetoolbar__secondary-link sitetoolbar__dropdown-link"
-                   href="#">Git</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <input type="text" id="header__weather">
   </nav>
   <div class="header__current-time">
     <span></span><span></span><span></span>
