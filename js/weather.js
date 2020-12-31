@@ -1,7 +1,6 @@
 var inputAutocomplete = document.querySelector('#header__weather');
 var defaultBounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(-33.8902, 151.1759),
-    new google.maps.LatLng(-33.8474, 151.2631));
+    new google.maps.LatLng(48.465956859420714, 35.05531639199907));
 
 var options = {
     bounds: defaultBounds,
