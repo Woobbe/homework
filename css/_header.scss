@@ -243,8 +243,23 @@ body {
   }
 
 .header__weather {
-  width: 400px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  p:first-child{
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  p {
+    margin-right: 10px;
+  }
+}
+
+#btn-weather {
+  background-color: #beffbe;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
 }

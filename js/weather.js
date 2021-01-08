@@ -1,4 +1,5 @@
-var inputAutocomplete = document.querySelector('#header__city');
+const inputAutocomplete = document.querySelector('#header__city');
+const btnGetWeather = document.querySelector('#btn-weather');
 var defaultBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(48.465956859420714, 35.05531639199907));
 
@@ -9,30 +10,32 @@ var options = {
 
 autocomplete = new google.maps.places.Autocomplete(inputAutocomplete, options);
 
-function getWeather() {
+function getWeather(city = 'Dnipro') {
     let xhr = new XMLHttpRequest();
     const API = 'b377d9cbd56af7e579dc8c36dc4186fa';
-    const lat = '48.465956859420714';
-    const lon = '35.05531639199907';
     const language = 'ru';
-    xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API}&lang=${language}&units=metric`, true);
+    xhr.open('GET',
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&lang=${language}&units=metric`,
+        true);
     xhr.send();
 
     xhr.onload = () => {
+        if (xhr.status !== 200) {
+            cleanWeatherWrapper();
+            showWeatherError('Выберите вариант из списка');
+            return;
+        }
         const weather = JSON.parse(xhr.response);
         const type = weather.weather[0].description;
         const temperature = weather.main.temp;
         const iconLink = `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
         const city = weather.name;
 
-        showWeather(type, temperature, iconLink, city)
+        showWeather(type, temperature, iconLink, city);
     }
 
     xhr.onerror = () => {
-        const wrapper = document.querySelector('.header__weather');
-        const errorText = document.createElement('p');
-        errorText.textContent = 'Сервис временно недоступен!';
-        wrapper.append(errorText);
+        showWeatherError('Сервис временно недоступен!');
     }
 }
 
@@ -42,10 +45,13 @@ function showWeather(type, temperature, iconLink, city) {
     const weatherType = document.createElement('p');
     const weatherTemperature = document.createElement('p');
     const weatherCity = document.createElement('p');
+
+    cleanWeatherWrapper();
+
     icon.src = iconLink;
     icon.alt = 'weather';
     weatherType.textContent = `${type[0].toUpperCase()}${type.slice(1)} `;
-    weatherTemperature.textContent = `Температура: ${Math.round(temperature)}`;
+    weatherTemperature.textContent = `Температура: ${Math.round(temperature)}°`;
     weatherCity.textContent = city;
     wrapper.append(weatherCity);
     wrapper.append(weatherType);
@@ -53,4 +59,41 @@ function showWeather(type, temperature, iconLink, city) {
     wrapper.append(icon);
 }
 
-getWeather()
+function getAutocompeteCity(inputSelector) {
+    const input = document.querySelector(inputSelector);
+    const inputValue = input.value;
+
+    if (!inputValue) {
+        alert('Поле не может быть пустым!');
+        return 'Dnipro';
+    }
+
+    const indexSeparator = inputValue.indexOf(',');
+    const city = inputValue.slice(0, indexSeparator);
+
+    return city;
+}
+
+function showWeatherError(text) {
+    const wrapper = document.querySelector('.header__weather');
+    const errorText = document.createElement('p');
+    errorText.textContent = text;
+    wrapper.append(errorText);
+}
+
+function cleanWeatherWrapper() {
+    const wrapper = document.querySelector('.header__weather');
+    const wrapperContent = wrapper.querySelectorAll('*');
+    wrapperContent.forEach(element => {
+        if (element) {
+            element.remove();
+        }
+    });
+}
+
+btnGetWeather.addEventListener('click', () => {
+    getWeather(getAutocompeteCity('#header__city'));
+})
+
+getWeather();
+
