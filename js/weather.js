@@ -10,12 +10,13 @@ var options = {
 
 autocomplete = new google.maps.places.Autocomplete(inputAutocomplete, options);
 
-function getWeather(city = 'Dnipro') {
-    let xhr = new XMLHttpRequest();
+function getWeather(city) {
+    const xhr = new XMLHttpRequest();
     const API = 'b377d9cbd56af7e579dc8c36dc4186fa';
     const language = 'ru';
+    const weatherCity = city || getCityLocalStorage() || 'Dnipro';
     xhr.open('GET',
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&lang=${language}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${weatherCity}&appid=${API}&lang=${language}&units=metric`,
         true);
     xhr.send();
 
@@ -71,8 +72,13 @@ function getAutocompeteCity(inputSelector) {
     const indexSeparator = inputValue.indexOf(',');
     const city = inputValue.slice(0, indexSeparator);
 
+    setCityLocalStorage(city);
     return city;
 }
+
+const setCityLocalStorage = city => window.localStorage.setItem('weatherCity', city);
+
+const getCityLocalStorage = () => window.localStorage.getItem('weatherCity');
 
 function showWeatherError(text) {
     const wrapper = document.querySelector('.header__weather');
