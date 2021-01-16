@@ -19,23 +19,29 @@ function initPromise() {
     titlesList = promiseContentWrapper.getElementsByTagName('h1');
     descriptionsList = promiseContentWrapper.getElementsByTagName('p');
 
-    hideOnePromise = new Promise(function(resolve, reject) {
-        buttonOne.addEventListener('click', () => {
-            setZeroProgressBar();
-            progressBar.addEventListener('transitionend', hideBlocksOneByOne.bind(null, 0), {once: true});
-            resolve();
-        });
+    hideOnePromise = new Promise(function (resolve, reject) {
+        startPromise(
+            buttonOne,
+            hideBlocksOneByOne.bind(null, 0),
+            resolve)
     });
 
-    hideAllPromise = new Promise(function(resolve, reject) {
-        buttonAll.addEventListener('click', () => {
-            setZeroProgressBar();
-            progressBar.addEventListener('transitionend', hideBlocksAll, {once: true});
-            resolve();
-        });
+    hideAllPromise = new Promise(function (resolve, reject) {
+        startPromise(
+            buttonAll,
+            hideBlocksAll,
+            resolve)
     });
 
     setTimeout(setFullProgressBar, 0);
+}
+
+const startPromise = (button, func, resolve) => {
+    button.addEventListener('click', () => {
+        setZeroProgressBar();
+        progressBar.addEventListener('transitionend', func, {once: true});
+        resolve();
+    });
 }
 
 const setFullProgressBar = () => {
@@ -75,61 +81,72 @@ const returnAllBlocks = () => {
 
 function hideBlocksAll() {
     for (let i = 0; i < blocksList.length; i++) {
-        hideAllPromise.then(() => {
+        hideAllPromise
+            .then(() => {
             imagesList[i].classList.add('promise-hide');
-            return hideAllPromise;
-        }).then(() => {
+            return this;
+        })
+            .then(() => {
             imagesList[i].addEventListener('transitionend', () => {
                 event.stopPropagation();
                 titlesList[i].classList.add('promise-hide');
             }, {once: true});
-            return hideAllPromise;
-        }).then(() => {
+            return this;
+        })
+            .then(() => {
             titlesList[i].addEventListener('transitionend', () => {
                 event.stopPropagation();
                 descriptionsList[i].classList.add('promise-hide');
             }, {once: true});
-            return hideAllPromise;
-        }).then(() => {
+            return this;
+        })
+            .then(() => {
             descriptionsList[i].addEventListener('transitionend', () => {
                 event.stopPropagation();
                 blocksList[i].classList.add('promise-hide');
             }, {once: true});
-            return hideAllPromise;
-        }).then(() => {
+            return this;
+        })
+            .then(() => {
             blocksList[i].addEventListener('transitionend', returnAllBlocks, {once: true});
         });
     }
 }
 
 function hideBlocksOneByOne(i) {
-    hideOnePromise.then(() => {
+    hideOnePromise
+        .then(() => {
         imagesList[i].classList.add('promise-hide');
-        return hideOnePromise;
-    }).then(() => {
+        return this;
+    })
+        .then(() => {
         imagesList[i].addEventListener('transitionend', () => {
             event.stopPropagation();
             titlesList[i].classList.add('promise-hide');
         }, {once: true});
-        return hideOnePromise;
-    }).then(() => {
+        return this;
+    })
+        .then(() => {
         titlesList[i].addEventListener('transitionend', () => {
             event.stopPropagation();
             descriptionsList[i].classList.add('promise-hide');
         }, {once: true});
-        return hideOnePromise;
-    }).then(() => {
+        return this;
+    })
+        .then(() => {
         descriptionsList[i].addEventListener('transitionend', () => {
             event.stopPropagation();
             blocksList[i].classList.add('promise-hide');
         }, {once: true});
-        return hideOnePromise;
-    }).then(() => {
+        return this;
+    })
+        .then(() => {
         blocksList[i].addEventListener('transitionend', () => {
             event.stopPropagation();
             hideBlocksOneByOne(++i);
         }, {once: true});
-    }).catch(() => {
+    })
+        .catch(() => {
         returnAllBlocks();
     });
 }
