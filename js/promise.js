@@ -21,8 +21,7 @@ function initPromise() {
 
     hideOnePromise = new Promise(function(resolve, reject) {
         buttonOne.addEventListener('click', () => {
-            deactivateButtons();
-            setFullProgressBar();
+            setZeroProgressBar();
             progressBar.addEventListener('transitionend', hideBlocksOneByOne.bind(null, 0), {once: true});
             resolve();
         });
@@ -30,39 +29,39 @@ function initPromise() {
 
     hideAllPromise = new Promise(function(resolve, reject) {
         buttonAll.addEventListener('click', () => {
-            deactivateButtons();
-            setFullProgressBar();
+            setZeroProgressBar();
             progressBar.addEventListener('transitionend', hideBlocksAll, {once: true});
             resolve();
         });
     });
 
-    setTimeout(setZeroProgressBar, 0);
+    setTimeout(setFullProgressBar, 0);
 }
 
-const setZeroProgressBar = () => {
-    progressBar.classList.add('zero');
+const setFullProgressBar = () => {
+    progressBar.classList.add('full');
     progressBar.addEventListener('transitionend', activateButtons, {once: true});
 };
 
-const setFullProgressBar = () => {
-    progressBar.classList.remove('zero');
+const setZeroProgressBar = () => {
+    progressBar.classList.remove('full');
     progressBar.addEventListener('transitionend', deactivateButtons, {once: true});
 };
 
 const activateButtons = () => {
-    buttonOne.disabled = false;
-    buttonAll.disabled = false;
-    buttonOne.classList.remove('button-disabled');
-    buttonAll.classList.remove('button-disabled');
+    setDisabledButton(buttonOne, false);
+    setDisabledButton(buttonAll, false);
 };
 
 const deactivateButtons = () => {
-    buttonOne.disabled = true;
-    buttonAll.disabled = true;
-    buttonOne.classList.add('button-disabled');
-    buttonAll.classList.add('button-disabled');
+    setDisabledButton(buttonOne, true);
+    setDisabledButton(buttonAll, true);
 };
+
+const setDisabledButton = (button, disabled) => {
+    button.disabled = disabled;
+    button.classList.toggle('button-disabled');
+}
 
 const returnAllBlocks = () => {
     for (let i = 0; i < blocksList.length; i++) {
@@ -71,7 +70,7 @@ const returnAllBlocks = () => {
         descriptionsList[i].classList.remove('promise-hide');
         blocksList[i].classList.remove('promise-hide');
     }
-    setZeroProgressBar();
+    setFullProgressBar();
 };
 
 function hideBlocksAll() {
